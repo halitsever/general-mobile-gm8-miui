@@ -1,5 +1,5 @@
 
-![enter image description here](https://i.ibb.co/LC0CqsL/android-1869510-1280.jpg)
+![enter image description here](https://i.ibb.co/LC0CqsL/android-1869510-1280.jpg)\
 **ADB GUI Rom Installer**
 Minimal adb & fastboot toolun geliştirilerek GUI haline dönüştürülmüş halidir. Bu sayede rom yüklemek paylaşılan kullanıcıya daha kolay olması amaçlanmıştır.
 
