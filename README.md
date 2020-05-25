@@ -19,7 +19,7 @@ Ayrıca TWRP içeriğinide cihazınıza göre değiştirmeniz gerekir.
 Bunun için ascii textleri klasörün içerisinde bulunan logo.txt, owner.txt dosyalarına gömmelisiniz. \
 
 **s.bat** = single cihaz batch dosyası\
-**d.bat** = dual cihaz batch dosyası\
+**d.bat** = dual cihaz batch dosyası
 
 
 
