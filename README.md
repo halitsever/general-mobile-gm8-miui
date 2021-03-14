@@ -4,7 +4,7 @@
 General Mobile GM8 cihazları için MIUI dağıtımları, cihazını özelleştirmek ve farklı bir deneyim yaşamak isteyen kullanıcılar için hazırlanmış olan,
   <b>General Mobile GM8 MIUI</b> yazılımını eforsuzca kurabilirsiniz. Stabil olmayan sürümler <b>gm 8</b> için düzgün çalışmayabilir.
 </p>
-<h1>Desteklenen platformlar</h1>
+<h1>Desteklenen cihazlar</h1>
 Genaral Mobile GM8 <a href="https://gm8miui.glitch.me/">(bu dağıtıma bakın)</a><br>
 General Mobile GM8 2020 Edition <a href="https://gm8miui.glitch.me/">(bu dağıtıma bakın)</a><br>
 <s>General Mobile GM8 Go</s> <a href="#">(bu dağıtıma bakın)</a><br>
