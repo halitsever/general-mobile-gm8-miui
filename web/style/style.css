@@ -22,7 +22,7 @@ body {
   width: 500px;
 
   background-repeat: no-repeat;
-  background-image: url("https://cdn.glitch.com/e37b2045-1560-4626-9f83-614412bae199%2Flogo.png?v=1585583739310");
+  background-image: url("./assets/logo.png");
   top: 15px;
   left: 5%;
 }
