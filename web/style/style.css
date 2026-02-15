@@ -56,7 +56,7 @@ a {
 }
 
 .banner {
-  background: url("/assets/gm8-banner.png") no-repeat;
+  background: url("./assets/gm8-banner.png") no-repeat;
   margin-left: -847.5px;
   border-bottom: 2px solid #f2f2f2;
   height: 659px;
