@@ -22,7 +22,7 @@ body {
   width: 500px;
 
   background-repeat: no-repeat;
-  background-image: url("./assets/logo.png");
+  background-image: url("../assets/logo.png");
   top: 15px;
   left: 5%;
 }
@@ -56,7 +56,7 @@ a {
 }
 
 .banner {
-  background: url("./assets/banner.png") no-repeat;
+  background: url("../assets/banner.png") no-repeat;
   margin-left: -847.5px;
   border-bottom: 2px solid #f2f2f2;
   height: 659px;
