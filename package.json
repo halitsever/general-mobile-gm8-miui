@@ -1,0 +1,25 @@
+{
+  "name": "general-mobile-gm8-miui",
+  "version": "1.0.0",
+  "description": "<h1>General Mobile GM8 MIUI 11.0.10</h1> <img align=\"right\" width=\"250\" height=\"250\"  alt=\"General Mobile GM8 MIUI\" src=\"https://i.ibb.co/Btzv1Mf/7946231600-LO1-20180315-103535.png\"> <p align=\"left\">    Miui deployments for <b>General Mobile GM8 devices</b>, you can install <b>General Mobile GM8 MIUI</b> software effortlessly, which is designed for users who want to customize their device and have a different experience. Unstable versions may not work properly for <b>GM 8</b>.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"web/**/*.{html,css}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halitsever/general-mobile-gm8-miui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/halitsever/general-mobile-gm8-miui/issues"
+  },
+  "homepage": "https://github.com/halitsever/general-mobile-gm8-miui#readme",
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  }
+}
