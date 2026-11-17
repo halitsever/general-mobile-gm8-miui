@@ -14,9 +14,6 @@ namespace GM8_MIUI
 {
     public partial class Form1 : MaterialForm
     {
-        private Process Process = new Process();
-        private ProcessStartInfo Input = new ProcessStartInfo();
-
         public Form1()
         {
             InitializeComponent();
@@ -26,9 +23,11 @@ namespace GM8_MIUI
         {
 
             string mode = (Mode == "fastboot") ? "fastboot" : "adb";
-            Input.FileName = mode + ".exe";
-            Input.Arguments = processInput;
-            Process.Start();
+            ProcessStartInfo input = new ProcessStartInfo(mode + ".exe", processInput);
+            using (Process process = Process.Start(input))
+            {
+                process.WaitForExit();
+            }
         }
 
         private void installMIUI(Boolean isDual)
@@ -51,10 +50,19 @@ namespace GM8_MIUI
             }
         }
 
-        private void materialButton1_Click(object sender, EventArgs e)
+        private async void materialButton1_Click(object sender, EventArgs e)
         {
-            if (singleDeviceRadioButton.Checked == true) installMIUI(false);
-            else installMIUI(true);
+            bool isDual = singleDeviceRadioButton.Checked != true;
+            /** A second click would start a parallel flash, so keep the button off until fastboot is done. */
+            materialButton1.Enabled = false;
+            try
+            {
+                await Task.Run(() => installMIUI(isDual));
+            }
+            finally
+            {
+                materialButton1.Enabled = true;
+            }
         }
 
     }

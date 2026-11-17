@@ -15,9 +15,9 @@ GMIUI: a MIUI 11 custom ROM download site (Turkish) and a Windows fastboot insta
 - `web/og.png` is a copy of `.github/social-preview.png`. Update both together. The owner uploads the social preview in repo settings by hand.
 - `web/.gitattributes` hides HTML and CSS from Linguist so GitHub reports the repo as C#.
 - The site is in Turkish (`lang="tr"`), the README in English. Keep each in its language.
-- `Form1.cs` never assigns `Input` to `Process.StartInfo`, so `runProcess` does not launch `fastboot.exe`. The commands also run without waiting for each other. Treat the installer as untested.
-- Dependabot bumps `packages.config` (MaterialSkin.2 is at 2.3.1) but the csproj `HintPath` still points at `MaterialSkin.2.2.2.1`. Fix both when touching NuGet references.
-- `package.json` only exists for Prettier. It is not published. Its `license` says ISC while `LICENSE` is MIT, and its `description` is pasted HTML.
+- `Form1.cs` runs each `fastboot.exe` command in its own console window and waits for it to exit before starting the next. It has not been compiled or run against a device since that change, so treat the installer as untested.
+- Dependabot bumps `packages.config` but not the csproj `Reference` version and `HintPath`. Update the csproj in the same PR (MaterialSkin.2 2.3.1 resolves to `lib\net461`).
+- `package.json` only exists for Prettier. It is not published.
 - ROM images are not in the repo. Downloads are external bit.ly / Google Drive links in `web/index.html`. Old `gm8miui.glitch.me` links are dead (HTTP 410).
 - The history is about 100 MB. Clone with `--depth 1 --filter=blob:limit=5m`.
 
