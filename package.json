@@ -1,7 +1,7 @@
 {
   "name": "general-mobile-gm8-miui",
   "version": "1.0.0",
-  "description": "<h1>General Mobile GM8 MIUI 11.0.10</h1> <img align=\"right\" width=\"250\" height=\"250\"  alt=\"General Mobile GM8 MIUI\" src=\"https://i.ibb.co/Btzv1Mf/7946231600-LO1-20180315-103535.png\"> <p align=\"left\">    Miui deployments for <b>General Mobile GM8 devices</b>, you can install <b>General Mobile GM8 MIUI</b> software effortlessly, which is designed for users who want to customize their device and have a different experience. Unstable versions may not work properly for <b>GM 8</b>.",
+  "description": "MIUI 11 custom ROM (GMIUI) for the General Mobile GM8, with a Windows fastboot installer for single and dual SIM models.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/halitsever/general-mobile-gm8-miui/issues"

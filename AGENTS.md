@@ -17,7 +17,7 @@ GMIUI: a MIUI 11 custom ROM download site (Turkish) and a Windows fastboot insta
 - The site is in Turkish (`lang="tr"`), the README in English. Keep each in its language.
 - `Form1.cs` runs each `fastboot.exe` command in its own console window and waits for it to exit before starting the next. It has not been compiled or run against a device since that change, so treat the installer as untested.
 - Dependabot bumps `packages.config` but not the csproj `Reference` version and `HintPath`. Update the csproj in the same PR (MaterialSkin.2 2.3.1 resolves to `lib\net461`).
-- `package.json` only exists for Prettier. It is not published. Its `license` says ISC while `LICENSE` is MIT, and its `description` is pasted HTML.
+- `package.json` only exists for Prettier. It is not published.
 - ROM images are not in the repo. Downloads are external bit.ly / Google Drive links in `web/index.html`. Old `gm8miui.glitch.me` links are dead (HTTP 410).
 - The history is about 100 MB. Clone with `--depth 1 --filter=blob:limit=5m`.
 
