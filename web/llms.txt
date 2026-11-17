@@ -1,0 +1,15 @@
+# GMIUI (General Mobile GM8 MIUI)
+
+> GMIUI is a MIUI 11 custom ROM for the General Mobile GM8 and GM8 2020 Edition Android phones (MIUI EU 11.0.10 stable, MIUI Global 11.0.7 unstable, single and dual SIM), with a Windows fastboot installer written in C#.
+
+The ROM installs to both A and B slots over fastboot. Rooting or modding it can leave the phone stuck on the Mi logo; flashing `single/boot.img` or `dual/boot.img` to the boot partition fixes that. It is a community project, not an official General Mobile or Xiaomi release.
+
+## Docs
+
+- [Download page](https://halitsever.github.io/general-mobile-gm8-miui/): ROM builds, changelogs, known bugs, install steps and optional mods (in Turkish)
+- [README](https://github.com/halitsever/general-mobile-gm8-miui/blob/main/README.md): features, supported devices, installer usage and the fastboot commands it runs
+- [Installer source](https://github.com/halitsever/general-mobile-gm8-miui/blob/main/src/GM8%20MIUI/Form1.cs): the WinForms code that runs the fastboot flash sequence
+
+## Optional
+
+- [Source](https://github.com/halitsever/general-mobile-gm8-miui): repository
