@@ -48,19 +48,33 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "GMIUI",
-        "alternateName": "General Mobile GM8 MIUI",
-        "description": "General Mobile GM8 için MIUI EU 11.0.10 ve MIUI Global 11.0.7 custom rom ve Windows fastboot kurulum aracı.",
-        "url": "https://halitsever.github.io/general-mobile-gm8-miui/",
-        "image": "https://halitsever.github.io/general-mobile-gm8-miui/og.png",
-        "operatingSystem": "Android",
-        "applicationCategory": "UtilitiesApplication",
-        "inLanguage": "tr",
-        "codeRepository": "https://github.com/halitsever/general-mobile-gm8-miui",
-        "programmingLanguage": "C#",
-        "license": "https://opensource.org/licenses/MIT",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://halitsever.github.io/general-mobile-gm8-miui/#app",
+            "name": "GMIUI",
+            "alternateName": "General Mobile GM8 MIUI",
+            "description": "General Mobile GM8 için MIUI EU 11.0.10 ve MIUI Global 11.0.7 custom rom ve Windows fastboot kurulum aracı.",
+            "url": "https://halitsever.github.io/general-mobile-gm8-miui/",
+            "image": "https://halitsever.github.io/general-mobile-gm8-miui/og.png",
+            "operatingSystem": "Android",
+            "applicationCategory": "UtilitiesApplication",
+            "inLanguage": "tr",
+            "license": "https://opensource.org/licenses/MIT",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+          },
+          {
+            "@type": "SoftwareSourceCode",
+            "@id": "https://halitsever.github.io/general-mobile-gm8-miui/#source",
+            "name": "GM8 MIUI Installer",
+            "codeRepository": "https://github.com/halitsever/general-mobile-gm8-miui",
+            "programmingLanguage": "C#",
+            "license": "https://opensource.org/licenses/MIT",
+            "targetProduct": {
+              "@id": "https://halitsever.github.io/general-mobile-gm8-miui/#app"
+            }
+          }
+        ]
       }
     </script>
     <link
@@ -78,7 +92,7 @@
   </head>
   <body>
     <div class="header">
-      <a href="http://www.gm8miui.glitch.me" class="miui_logo">&nbsp;</a>
+      <a href="./" class="miui_logo">&nbsp;</a>
       <p class="miui_menu">
         <a
           class="nav-link"
@@ -90,8 +104,8 @@
         <a class="nav-link" href="#yorumlar" rel="noopener noreferrer"
           >Bug bildir & Yardım iste</a
         >
-        <!--<a class="nav-link" href="https://gm8miui.glitch.me/bagis.html"  rel="noopener noreferrer">Bağış yap</a>-->
-        <!-- <a class="nav-link" href="https://gm8miui.glitch.me/kurulum.html"  rel="noopener noreferrer">Nasıl kurulur?</a>-->
+        <!--<a class="nav-link" href="https://github.com/sponsors/halitsever"  rel="noopener noreferrer">Bağış yap</a>-->
+        <!-- <a class="nav-link" href="https://github.com/halitsever/general-mobile-gm8-miui#readme"  rel="noopener noreferrer">Nasıl kurulur?</a>-->
       </p>
     </div>
     <div class="content">
@@ -104,6 +118,9 @@
     </div>
 
     <div id="main-content" style="width: 80%; margin: auto; bottom: 0px">
+      <h1 class="h3 text-center" style="margin-top: 20px">
+        General Mobile GM8 MIUI Rom İndir
+      </h1>
       <div id="indir"></div>
       <div style="margin-top: 20px" class="card">
         <div class="card-body">
@@ -232,7 +249,8 @@
                   </h2>
                   <ul>
                     <li>
-                      <a href="https://gm8miui.glitch.me/kurulum.html"
+                      <a
+                        href="https://github.com/halitsever/general-mobile-gm8-miui#readme"
                         >Kurulum yönergeleri için tıkla</a
                       >
                     </li>
@@ -349,12 +367,8 @@
                   <h2>İndir</h2>
                   <ul>
                     <li>
-                      <a
-                        style="background-color: #fd4900; color: white"
-                        href="http://bit.ly/gm8_global_unstable"
-                        class="btn"
-                        >SINGLE/DUAL INDIR</a
-                      >
+                      Bu sürüm artık indirilemiyor. Stabil MIUI EU 11.0.10
+                      sürümünü kullanın.
                     </li>
                   </ul>
                 </div>
