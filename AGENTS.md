@@ -11,7 +11,7 @@ GMIUI: a MIUI 11 custom ROM download site (Turkish) and a Windows fastboot insta
 
 ## Gotchas
 
-- Only `web/` is deployed. `robots.txt`, `sitemap.xml`, `llms.txt` and `og.png` live there, and absolute URLs in them use `https://halitsever.github.io/general-mobile-gm8-miui/`.
+- Only `web/` is deployed. `robots.txt`, `sitemap.xml`, `llms.txt` and `og.png` live there, and absolute URLs in them use `https://projects.halit.org/general-mobile-gm8-miui/`.
 - `web/og.png` is a copy of `.github/social-preview.png`. Update both together. The owner uploads the social preview in repo settings by hand.
 - `web/.gitattributes` hides HTML and CSS from Linguist so GitHub reports the repo as C#.
 - The site is in Turkish (`lang="tr"`), the README in English. Keep each in its language.
