@@ -10,7 +10,7 @@ GMIUI is a MIUI 11 custom ROM for the General Mobile GM8 Android smartphone, wit
 <img src="https://img.shields.io/github/sponsors/halitsever" alt="GitHub Sponsors"/>
 </p>
 <p align="center">
-<a align="center" href="https://halitsever.github.io/general-mobile-gm8-miui/">Documentation</a>
+<a align="center" href="https://projects.halit.org/general-mobile-gm8-miui/">Documentation</a>
   </p>
 </p>
 
@@ -26,12 +26,12 @@ MIUI deployments for <b>General Mobile GM8 devices</b>, you can install <b>Gener
 - Installs to both A and B slots, GSI based, 1.6 GB in total
 - MIUI Camera included, missing system apps installed and updated, brightness and flashlight fixed, VoLTE and fingerprint working
 - **GM8 MIUI Installer**: a Windows Forms app (.NET Framework 4.7.2, MaterialSkin.2) that flashes the ROM over fastboot
-- Optional mods on the [download page](https://halitsever.github.io/general-mobile-gm8-miui/): Mi boot splash, Magisk root, Dolby Audio and Google Camera
+- Optional mods on the [download page](https://projects.halit.org/general-mobile-gm8-miui/): Mi boot splash, Magisk root, Dolby Audio and Google Camera
 
 **Supported devices**
 
-General Mobile GM8 <a href="https://halitsever.github.io/general-mobile-gm8-miui/">(checkout this release)</a><br>
-General Mobile GM8 2020 Edition <a href="https://halitsever.github.io/general-mobile-gm8-miui/">(checkout this release)</a><br>
+General Mobile GM8 <a href="https://projects.halit.org/general-mobile-gm8-miui/">(checkout this release)</a><br>
+General Mobile GM8 2020 Edition <a href="https://projects.halit.org/general-mobile-gm8-miui/">(checkout this release)</a><br>
 <s>General Mobile GM8 Go</s> <a href="#">(checkout this release)</a><br>
 
 **Responsibility & Known bugs**
@@ -51,7 +51,7 @@ Splash flasher tool by murat100, Mi splash by Neqative/RomRunner. Thanks to cıy
 <img src="https://halitsever-api.vercel.app/api/installation"/>
 </p>
 
-1. Download the ROM for your model from the [download page](https://halitsever.github.io/general-mobile-gm8-miui/). The stable MIUI EU 11.0.10 build is recommended.
+1. Download the ROM for your model from the [download page](https://projects.halit.org/general-mobile-gm8-miui/). The stable MIUI EU 11.0.10 build is recommended.
 2. Boot the GM8 into fastboot mode and connect it over USB.
 3. Open the GM8 MIUI Installer in the ROM folder, pick **Single** or **Dual** SIM and click **INSTALL MIUI**.
 
