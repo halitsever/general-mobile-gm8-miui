@@ -4,7 +4,7 @@ GMIUI: a MIUI 11 custom ROM download site (Turkish) and a Windows fastboot insta
 
 ## Verify a change
 
-- The only workflow is `.github/workflows/static.yml`: on push to `main` it uploads `web/` as-is to GitHub Pages. There is no build and no test job.
+- The only workflow is `.github/workflows/static.yml`: on push to `main` it minifies `web/style/style.css` with esbuild and uploads `web/` to GitHub Pages. There is no build and no test job.
 - Run `npm ci && npx prettier --check .` before pushing. The repo is Prettier-formatted, `npm run format` rewrites files in place.
 - For site changes, open `web/index.html` in a browser. Paths are relative (`./assets/...`) so the page works under the `/general-mobile-gm8-miui/` Pages base path.
 - The installer (`src/GM8 MIUI.sln`) is .NET Framework 4.7.2 WinForms and builds only on Windows with Visual Studio or MSBuild after a NuGet restore.
