@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TWRP Nedir? TWRP Recovery Yükleme ve Kullanımı</title>
+    <meta
+      name="description"
+      content="TWRP nedir, TWRP recovery ne işe yarar? Fastboot ile TWRP yükleme ve geçici açma, Wipe, Format Data ve Restore adımları, GM8 MIUI kurulumundaki kullanımı."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/twrp-nedir/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="TWRP Nedir? TWRP Recovery Yükleme ve Kullanımı"
+    />
+    <meta
+      property="og:description"
+      content="TWRP nedir, TWRP recovery ne işe yarar? Fastboot ile TWRP yükleme ve geçici açma, Wipe, Format Data ve Restore adımları, GM8 MIUI kurulumundaki kullanımı."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/twrp-nedir/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "TWRP nedir ve recovery'de neler yapılır?",
+            "description": "TWRP nedir, TWRP recovery ne işe yarar? Fastboot ile TWRP yükleme ve geçici açma, Wipe, Format Data ve Restore adımları, GM8 MIUI kurulumundaki kullanımı.",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/twrp-nedir/",
+            "mainEntityOfPage": "https://projects.halit.org/general-mobile-gm8-miui/blog/twrp-nedir/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/general-mobile-gm8-miui/og.png",
+            "keywords": "twrp nedir",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "TWRP nedir ve recovery'de neler yapılır?",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/twrp-nedir/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "TWRP nedir?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "TeamWin Recovery Project. Android için dokunmatik, açık kaynak bir özel recovery'dir. ROM ve zip kurmak, yedek almak, bölüm silmek için kullanılır."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "TWRP yüklemek için root gerekir mi?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hayır. TWRP fastboot ile yüklenir ve bunun için bootloader kilidinin açık olması gerekir. Root, TWRP'den sonra ayrıca kurulabilen bir şeydir."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "TWRP yedeği fotoğrafları da alır mı?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hayır. TWRP'nin kendi açıklamasına göre data yedeği dahili hafızayı içermez. Fotoğraf ve dosyaları ayrıca bilgisayara kopyalayın."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Format Data ne yapar?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Data bölümünü biçimlendirir ve dahili hafızayı da siler. TWRP bunun nadiren gerektiğini yazar; ROM'u hazırlayan istiyorsa uygulanır."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header class="hero wrap">
+          <p class="crumbs">
+            <a href="/general-mobile-gm8-miui/">Ana sayfa</a> ›
+            <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+          </p>
+          <h1>TWRP nedir ve recovery&#x27;de neler yapılır?</h1>
+          <p class="meta">
+            Yazan <a href="https://halit.org">Halit Sever</a> ·
+            <time datetime="2026-11-28">28 Kasım 2026</time>
+          </p>
+          <p class="lead">
+            TWRP, TeamWin Recovery Project'in kısaltmasıdır: Android telefonlar
+            için dokunmatik ekranlı bir özel recovery. ROM, root ve mod
+            kurulumlarında, yedek almakta ve telefonu silmekte kullanılır.
+          </p>
+        </header>
+
+        <section class="wrap prose">
+          <h2>Recovery ve özel recovery</h2>
+          <p>
+            Her Android telefonda Android'den ayrı açılan küçük bir kurtarma
+            ortamı, yani recovery bulunur. Üreticinin recovery'si genelde
+            fabrika ayarlarına dönmek ve resmî güncelleme yüklemekle sınırlıdır.
+            Özel recovery bu menünün yerine geçen, çok daha fazlasını yapan bir
+            sürümdür.
+          </p>
+          <p>
+            TWRP'nin hakkında sayfası onu bugün en yaygın özel recovery olarak
+            tanımlar ve kullanım amacını şöyle anlatır: root gibi küçük
+            değişikliklerden telefonun yazılımını tamamen başka bir ROM ile
+            değiştirmeye kadar özel yazılım kurmak. Kaynak kodu açıktır.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>TWRP ile neler yapılır?</h2>
+          <p>
+            <a href="https://twrp.me/faq/whatistwrp.html"
+              >TWRP'nin kendi SSS sayfası</a
+            >
+            şu özellikleri sayar:
+          </p>
+          <ul>
+            <li>Bölümlerin TAR ya da ham imaj olarak yedeğini almak,</li>
+            <li>
+              Yedeği dahili hafızadan, SD karttan veya OTG bellekten geri
+              yüklemek,
+            </li>
+            <li>Özel yazılım (ROM, zip) kurmak,</li>
+            <li>Bölümleri silmek, dosya silmek,</li>
+            <li>Terminal ve root yetkili ADB kabuğu kullanmak.</li>
+          </ul>
+          <p>
+            Önemli bir ayrıntı: TWRP'nin data yedeği dahili hafızayı
+            (fotoğraflar, indirilenler) içermez. Yedekten sonra telefonu
+            sıfırlayıp yedeği geri yüklerseniz dahili hafızadaki dosyalarınız
+            gider. Onları ayrıca bilgisayara alın.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>TWRP nasıl yüklenir?</h2>
+          <p>
+            TWRP fastboot ile yüklenir, bu yüzden bootloader kilidinin açık
+            olması gerekir. Telefonunuza özel TWRP imajını yalnızca
+            <a href="https://twrp.me/Devices/">twrp.me cihaz listesinden</a> ya
+            da cihazın bilinen geliştiricisinden alın. Yaygın iki komut:
+          </p>
+          <pre><code>fastboot boot twrp.img            # TWRP&#x27;yi yazmadan bir kez açar
+fastboot flash recovery twrp.img  # ayrı recovery bölümü olan telefonlarda kalıcı yazar</code></pre>
+          <p>
+            A/B bölümlü telefonların çoğunda ayrı bir recovery bölümü yoktur,
+            recovery boot imajının içinde durur. Bu telefonlarda TWRP önce
+            <code>fastboot boot</code> ile açılır ve kalıcı kurulum TWRP'nin
+            içinden yapılır. Hangi yolun geçerli olduğu cihaz sayfasında yazar.
+            Fastboot'un ne olduğu
+            <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              >fastboot ne demek</a
+            >
+            yazısında.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Wipe ve Format Data</h2>
+          <p>
+            TWRP'nin "ne silmeliyim" sayfası, bir ROM'dan tamamen başka bir
+            ROM'a geçerken fabrika sıfırlaması yapmanın çoğu durumda yeterli
+            olduğunu yazar. Bu, data ve cache bölümlerini siler. Dahili hafızayı
+            silme ya da
+            <strong>Format Data</strong> gibi seçeneklere nadiren gerek
+            olduğunu, ROM'u hazırlayan istiyorsa uygulanması gerektiğini ekler.
+          </p>
+          <p>
+            GM8 MIUI ROM'un kurulum adımları Format Data'yı istiyor, o yüzden
+            aşağıda o adım var. Format Data dahili hafızayı da siler.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>GM8 MIUI kurulumunda TWRP</h2>
+          <p>
+            ROM'un <a href="/general-mobile-gm8-miui/">indirme sayfası</a>, MIUI
+            Global 11.0.7 için kurulum aracından sonra şu TWRP adımlarını
+            veriyor:
+          </p>
+          <ol>
+            <li>
+              Kurulum bitince, ilk açılıştan önce ses açma tuşuna basarak
+              TWRP'yi açın.
+            </li>
+            <li>
+              <strong>Wipe</strong> bölümünde <strong>Format Data</strong>'ya
+              basın, kutuya <code>yes</code> yazıp kaydırın.
+            </li>
+            <li>
+              USB bağlıyken <strong>Mount</strong> bölümünde
+              <strong>Disable MTP</strong>, ardından
+              <strong>Enable MTP</strong>'ye basın.
+            </li>
+            <li>
+              ROM klasöründeki TWRP klasörünü telefonun hafızasına kopyalayın.
+            </li>
+            <li>
+              <strong>Restore</strong> bölümünde klasörü seçin, Data işaretli
+              olsun ve geri yüklemeyi başlatın.
+            </li>
+            <li>Bitince telefonu güç tuşuyla yeniden başlatın.</li>
+          </ol>
+          <p>
+            Bu sürüm artık indirilemiyor, sayfa stabil MIUI EU 11.0.10'u
+            öneriyor. Adımlar yine de TWRP'nin Wipe, Mount ve Restore
+            bölümlerinin bir kurulumda nasıl birlikte kullanıldığını gösteriyor.
+            Kamera gelmezse sayfa ayrıca Magisk zip'inin TWRP'nin Install
+            bölümünden yüklenmesini istiyor; bkz.
+            <a href="/general-mobile-gm8-miui/blog/magisk-nedir/"
+              >Magisk nedir</a
+            >.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>TWRP nasıl kaldırılır?</h2>
+          <p>
+            TWRP'nin SSS sayfasına göre çoğu cihazda TWRP "kaldırılmaz", yerine
+            başka bir recovery yazılır. Orijinal recovery'ye dönmek için onun
+            imajını bulup aynı yolla yazmanız gerekir. TWRP orijinal recovery
+            imajlarını saklamaz.
+          </p>
+        </section>
+        <section class="wrap prose faq">
+          <h2>Sık sorulan sorular</h2>
+          <h3>TWRP nedir?</h3>
+          <p>
+            TeamWin Recovery Project. Android için dokunmatik, açık kaynak bir
+            özel recovery'dir. ROM ve zip kurmak, yedek almak, bölüm silmek için
+            kullanılır.
+          </p>
+          <h3>TWRP yüklemek için root gerekir mi?</h3>
+          <p>
+            Hayır. TWRP fastboot ile yüklenir ve bunun için bootloader kilidinin
+            açık olması gerekir. Root, TWRP'den sonra ayrıca kurulabilen bir
+            şeydir.
+          </p>
+          <h3>TWRP yedeği fotoğrafları da alır mı?</h3>
+          <p>
+            Hayır. TWRP'nin kendi açıklamasına göre data yedeği dahili hafızayı
+            içermez. Fotoğraf ve dosyaları ayrıca bilgisayara kopyalayın.
+          </p>
+          <h3>Format Data ne yapar?</h3>
+          <p>
+            Data bölümünü biçimlendirir ve dahili hafızayı da siler. TWRP bunun
+            nadiren gerektiğini yazar; ROM'u hazırlayan istiyorsa uygulanır.
+          </p>
+        </section>
+      </article>
+      <section class="wrap prose related">
+        <h2>İlgili yazılar</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              >Fastboot ne demek? Fastboot modu nedir?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/root-nedir/"
+              >Root nedir, telefonu rootlamak ne demek?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/magisk-nedir/"
+              >Magisk nedir, nasıl kurulur ve kaldırılır?</a
+            >
+          </li>
+        </ul>
+        <p>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer ve komutları</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Tüm yazılar</a>
+        </p>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

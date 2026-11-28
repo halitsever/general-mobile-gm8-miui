@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Magisk Nedir? Kurulum, Modüller ve Root Kaldırma</title>
+    <meta
+      name="description"
+      content="Magisk nedir, ne işe yarar? Boot imajını yamalayarak kurulum, Magisk modülleri, eski TWRP yöntemi ve Magisk root kaldırma adımları GM8 örneğiyle."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/magisk-nedir/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="Magisk Nedir? Kurulum, Modüller ve Root Kaldırma"
+    />
+    <meta
+      property="og:description"
+      content="Magisk nedir, ne işe yarar? Boot imajını yamalayarak kurulum, Magisk modülleri, eski TWRP yöntemi ve Magisk root kaldırma adımları GM8 örneğiyle."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/magisk-nedir/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Magisk nedir, nasıl kurulur ve kaldırılır?",
+            "description": "Magisk nedir, ne işe yarar? Boot imajını yamalayarak kurulum, Magisk modülleri, eski TWRP yöntemi ve Magisk root kaldırma adımları GM8 örneğiyle.",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/magisk-nedir/",
+            "mainEntityOfPage": "https://projects.halit.org/general-mobile-gm8-miui/blog/magisk-nedir/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/general-mobile-gm8-miui/og.png",
+            "keywords": "magisk nedir",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Magisk nedir, nasıl kurulur ve kaldırılır?",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/magisk-nedir/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Magisk nedir?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Android için açık kaynak bir özelleştirme takımıdır. Uygulamalara root yetkisi verir ve sistem bölümünü değiştirmeden modül kurmayı sağlar."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Magisk APK nereden indirilir?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Magisk'in kendi deposuna göre resmî kaynak yalnızca GitHub'daki topjohnwu/Magisk sayfasıdır."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Magisk bootloader kilidi açmadan kurulur mu?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hayır. Magisk'in belgesi bootloader kilidinin açık olmasını ön koşul olarak yazar."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Magisk nasıl kaldırılır?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Magisk uygulamasının kaldırma seçeneğiyle. Alternatif olarak APK'nın adı uninstall.zip yapılıp recovery'den yüklenebilir ya da orijinal boot imajı yeniden yazılabilir."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header class="hero wrap">
+          <p class="crumbs">
+            <a href="/general-mobile-gm8-miui/">Ana sayfa</a> ›
+            <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+          </p>
+          <h1>Magisk nedir, nasıl kurulur ve kaldırılır?</h1>
+          <p class="meta">
+            Yazan <a href="https://halit.org">Halit Sever</a> ·
+            <time datetime="2026-11-28">28 Kasım 2026</time>
+          </p>
+          <p class="lead">
+            Magisk, Android'i sistem bölümüne dokunmadan özelleştirmek için
+            kullanılan açık kaynak bir araç takımıdır. Root yetkisi ve modüller
+            onunla gelir. Bu yazı Magisk'in ne yaptığını, resmî belgesindeki
+            kurulum yolunu ve nasıl kaldırıldığını anlatıyor.
+          </p>
+        </header>
+
+        <section class="wrap prose">
+          <h2>Magisk ne işe yarar?</h2>
+          <p>
+            Magisk'in kendi deposu onu Android 7.0 ve sonrası için bir
+            özelleştirme takımı olarak tanımlar. Dört parçası var:
+          </p>
+          <ul>
+            <li>
+              <strong>MagiskSU:</strong> uygulamalara root yetkisi verir.
+              Root'un ne olduğu
+              <a href="/general-mobile-gm8-miui/blog/root-nedir/">root nedir</a>
+              yazısında.
+            </li>
+            <li>
+              <strong>Magisk modülleri:</strong> salt okunur bölümlerde
+              değişikliği, bölümün kendisini değiştirmeden yapar.
+            </li>
+            <li>
+              <strong>MagiskBoot:</strong> boot imajlarını açıp yeniden
+              paketleyen araçtır.
+            </li>
+            <li>
+              <strong>Zygisk:</strong> her uygulamanın sürecinde kod
+              çalıştırabilir.
+            </li>
+          </ul>
+          <p>
+            Magisk'in resmî indirme kaynağı yalnızca GitHub'daki
+            <a href="https://github.com/topjohnwu/Magisk/releases"
+              >topjohnwu/Magisk</a
+            >
+            sayfasıdır. Başka sitelerden "Magisk APK indir" diye gelen dosyalara
+            güvenmeyin.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Kurulumdan önce</h2>
+          <ul>
+            <li>
+              Bootloader kilidi açık olmalı. Bkz.
+              <a href="/general-mobile-gm8-miui/blog/bootloader-kilidi-acma/"
+                >bootloader kilidi açma</a
+              >.
+            </li>
+            <li>
+              Bilgisayarda <code>adb</code> ve <code>fastboot</code> çalışıyor
+              olmalı. Bkz.
+              <a href="/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+                >ADB ve fastboot kurulumu</a
+              >.
+            </li>
+            <li>
+              Telefonun kendi <code>boot.img</code> dosyası elinizde olmalı.
+            </li>
+          </ul>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Önerilen yol: boot imajını yamalamak</h2>
+          <p>
+            <a href="https://topjohnwu.github.io/Magisk/install.html"
+              >Magisk kurulum belgesi</a
+            >
+            bugün bu yolu öneriyor:
+          </p>
+          <ol>
+            <li>
+              Magisk uygulamasını telefona kurun ve
+              <strong>Install</strong> düğmesine basın.
+            </li>
+            <li>
+              <strong>Patch firmware / image</strong> seçeneğiyle telefonun
+              <code>boot.img</code> dosyasını seçin.
+            </li>
+            <li>
+              Yamalanmış dosyayı bilgisayara alın ve fastboot modunda yazın:
+            </li>
+          </ol>
+          <pre><code>adb pull /sdcard/Download/magisk_patched-&lt;sürüm&gt;_&lt;rastgele&gt;.img
+adb reboot bootloader
+fastboot flash boot magisk_patched-&lt;sürüm&gt;_&lt;rastgele&gt;.img
+fastboot reboot</code></pre>
+          <p>
+            Belge bir uyarıyı özellikle vurgular: başkasının yamaladığı imajı ya
+            da başka bir telefonda yamalanmış imajı, model aynı olsa bile
+            yazmayın. Yamayı her zaman Magisk'i kuracağınız telefonun kendisinde
+            yapın.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Eski yol: TWRP ile zip yüklemek</h2>
+          <p>
+            Eskiden Magisk,
+            <a href="/general-mobile-gm8-miui/blog/twrp-nedir/">TWRP</a> gibi
+            bir özel recovery'den zip olarak yüklenirdi. Magisk'in belgesi bu
+            yöntemi artık "deprecated" yani bakımı asgariye indirilmiş olarak
+            işaretliyor ve sorun yaşanırsa boot imajını yamalama yolunu
+            öneriyor.
+          </p>
+          <p>
+            GM8 MIUI ROM'un sayfası bu eski yolu kullanıyor: MIUI Global 11.0.7
+            kurulumundan sonra kamera gelmezse
+            <code>Magisk-v20.3.zip</code> dosyasının TWRP'nin Install bölümünden
+            yüklenmesi isteniyor. Bu, 2020 dönemine ait eski bir Magisk
+            sürümüdür ve o ROM'a özel bir adımdır.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Magisk modülleri</h2>
+          <p>
+            Modül, Magisk'in açılışta sisteme eklediği bir zip pakettir. Sistem
+            bölümü değişmediği için modülü kaldırınca değişiklik de kalkar. GM8
+            MIUI ROM'daki Dolby Audio modu böyle kuruluyor: Magisk açılır,
+            <strong>Modules</strong>
+            bölümünde yükleme seçilir, zip seçilir ve telefon yeniden
+            başlatılır. Sayfaya göre MIUI Kamera da Magisk'in modüller
+            bölümünden kaldırılabiliyor.
+          </p>
+          <p>
+            Bir modül telefonu açılmaz hale getirirse modülü değil boot imajını
+            düzeltmek gerekir. GM8 MIUI ROM için bu, orijinal
+            <code>boot.img</code> dosyasını yeniden yazmaktır.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Magisk root kaldırma</h2>
+          <p>
+            Magisk'in belgesine göre en kolay yol uygulamanın kendi kaldırma
+            seçeneğidir. Özel recovery kullanmakta ısrar ederseniz Magisk APK
+            dosyasının adını <code>uninstall.zip</code> yapıp recovery'den
+            yükleyebilirsiniz.
+          </p>
+          <p>
+            Üçüncü yol, rootsuz orijinal boot imajını yeniden yazmaktır. GM8
+            MIUI ROM'da bu
+            <code>fastboot flash boot single/boot.img</code> (çift SIM'de
+            <code>dual/boot.img</code>) komutudur.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>GM8'de Magisk kurmalı mıyım?</h2>
+          <p>
+            ROM'un sayfası, MIUI kuruluyken root ve modların telefonu Mi
+            logosunda bırakabildiğini, bu yüzden kurulmamasının tavsiye
+            edildiğini yazıyor. Kurmaya karar verirseniz önce ROM klasöründeki
+            <code>boot.img</code> dosyasının yerini bilin. Geri dönüş yolunuz o
+            dosyadır.
+          </p>
+        </section>
+        <section class="wrap prose faq">
+          <h2>Sık sorulan sorular</h2>
+          <h3>Magisk nedir?</h3>
+          <p>
+            Android için açık kaynak bir özelleştirme takımıdır. Uygulamalara
+            root yetkisi verir ve sistem bölümünü değiştirmeden modül kurmayı
+            sağlar.
+          </p>
+          <h3>Magisk APK nereden indirilir?</h3>
+          <p>
+            Magisk'in kendi deposuna göre resmî kaynak yalnızca GitHub'daki
+            topjohnwu/Magisk sayfasıdır.
+          </p>
+          <h3>Magisk bootloader kilidi açmadan kurulur mu?</h3>
+          <p>
+            Hayır. Magisk'in belgesi bootloader kilidinin açık olmasını ön koşul
+            olarak yazar.
+          </p>
+          <h3>Magisk nasıl kaldırılır?</h3>
+          <p>
+            Magisk uygulamasının kaldırma seçeneğiyle. Alternatif olarak APK'nın
+            adı <code>uninstall.zip</code> yapılıp recovery'den yüklenebilir ya
+            da orijinal boot imajı yeniden yazılabilir.
+          </p>
+        </section>
+      </article>
+      <section class="wrap prose related">
+        <h2>İlgili yazılar</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/root-nedir/"
+              >Root nedir, telefonu rootlamak ne demek?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/twrp-nedir/"
+              >TWRP nedir ve recovery&#x27;de neler yapılır?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/bootloader-kilidi-acma/"
+              >Bootloader nedir, kilidi nasıl açılır ve kapatılır?</a
+            >
+          </li>
+        </ul>
+        <p>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer ve komutları</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Tüm yazılar</a>
+        </p>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
