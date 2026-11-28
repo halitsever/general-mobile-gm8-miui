@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fastboot Driver Kurulumu: Cihaz Görünmüyorsa</title>
+    <meta
+      name="description"
+      content="fastboot devices boş mu, waiting for any device mı yazıyor? Windows&#x27;ta fastboot driver kurulumu, Aygıt Yöneticisi adımları ve kablo ile port kontrolleri."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-driver/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="Fastboot Driver Kurulumu: Cihaz Görünmüyorsa"
+    />
+    <meta
+      property="og:description"
+      content="fastboot devices boş mu, waiting for any device mı yazıyor? Windows&#x27;ta fastboot driver kurulumu, Aygıt Yöneticisi adımları ve kablo ile port kontrolleri."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-driver/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Fastboot driver kurulumu: cihaz görünmüyorsa",
+            "description": "fastboot devices boş mu, waiting for any device mı yazıyor? Windows'ta fastboot driver kurulumu, Aygıt Yöneticisi adımları ve kablo ile port kontrolleri.",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-driver/",
+            "mainEntityOfPage": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-driver/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/general-mobile-gm8-miui/og.png",
+            "keywords": "fastboot driver",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Fastboot driver kurulumu: cihaz görünmüyorsa",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-driver/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "ADB çalışıyor ama fastboot çalışmıyor, neden?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Telefon Android'de ve fastboot'ta USB'de farklı cihaz olarak görünür. ADB sürücüsü kurulu olsa bile fastboot arayüzü (Android Bootloader Interface) için sürücü ayrıca seçilmelidir."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Sürücü kurduktan sonra bilgisayarı yeniden başlatmalı mıyım?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Genelde gerekmez. Telefonu çıkarıp takmak ve yeni bir komut penceresi açmak yeterlidir."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header class="hero wrap">
+          <p class="crumbs">
+            <a href="/general-mobile-gm8-miui/">Ana sayfa</a> ›
+            <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+          </p>
+          <h1>Fastboot driver kurulumu: cihaz görünmüyorsa</h1>
+          <p class="meta">
+            Yazan <a href="https://halit.org">Halit Sever</a> ·
+            <time datetime="2026-11-28">28 Kasım 2026</time>
+          </p>
+          <p class="lead">
+            Telefon fastboot ekranında ama bilgisayar onu görmüyor: fastboot
+            devices boş dönüyor ya da komutlar waiting for any device yazıp
+            bekliyor. Sebep neredeyse her zaman Windows sürücüsü, kablo ya da
+            USB portudur.
+          </p>
+        </header>
+
+        <section class="wrap prose">
+          <h2>Belirtiler</h2>
+          <pre><code>&gt; fastboot devices
+                                  (boş satır)
+&gt; fastboot flash boot boot.img
+&lt; waiting for any device &gt;</code></pre>
+          <p>
+            Fastboot komutları telefon görünene kadar bekler.
+            <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+              >GM8 MIUI Installer</a
+            >
+            de her komutu ayrı bir konsol penceresinde açar ve o pencere
+            kapanmadan sonrakine geçmez. Sürücü yoksa ilk pencere
+            <code>waiting for any device</code>
+            yazıp bekler ve kurulum ilerlemez. Böyle bir durumda telefon hiçbir
+            şey yazılmadan bekliyor demektir.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>1. Kablo ve port</h2>
+          <ul>
+            <li>
+              Veri aktarabilen bir kablo kullanın. Bazı kablolar sadece şarj
+              eder.
+            </li>
+            <li>
+              Kabloyu USB hub yerine doğrudan bilgisayara takın. Masaüstünde
+              arka paneldeki portları deneyin.
+            </li>
+            <li>
+              Bir port işe yaramazsa başka bir port ve mümkünse USB 2.0 portu
+              deneyin.
+            </li>
+          </ul>
+        </section>
+
+        <section class="wrap prose">
+          <h2>2. Aygıt Yöneticisi'nde sürücüyü kurun</h2>
+          <p>
+            Google, Windows için
+            <a href="https://developer.android.com/studio/run/win-usb"
+              >Google USB Driver</a
+            >
+            paketini yayımlıyor. Resmî olarak Google cihazları içindir, diğer
+            markalar için Android'in
+            <a href="https://developer.android.com/studio/run/oem-usb"
+              >OEM USB sürücüleri sayfası</a
+            >
+            üreticilerin kendi sürücülerine yönlendirir. Pratikte birçok
+            telefonun fastboot arayüzü Google'ın sürücüsüyle de tanınır. Kurulum
+            şöyle:
+          </p>
+          <ol>
+            <li>Google USB Driver zip'ini indirip bir klasöre çıkarın.</li>
+            <li>
+              Telefonu fastboot modunda bağlayın ve
+              <strong>Aygıt Yöneticisi</strong>'ni açın.
+            </li>
+            <li>
+              Sarı ünlemli "Android" ya da "Diğer aygıtlar" altındaki cihaza sağ
+              tıklayıp <strong>Sürücüyü güncelleştir</strong>'i seçin.
+            </li>
+            <li>
+              <strong>Sürücüler için bilgisayarıma gözat</strong>, ardından
+              <strong
+                >Bilgisayarımdaki kullanılabilir sürücüler listesinden seçmeme
+                izin ver</strong
+              >'e tıklayın.
+            </li>
+            <li>
+              <strong>Disketi var</strong> deyip çıkardığınız klasördeki
+              <code>android_winusb.inf</code> dosyasını gösterin.
+            </li>
+            <li>
+              Listeden <strong>Android Bootloader Interface</strong>'i seçin ve
+              uyarıyı onaylayın.
+            </li>
+          </ol>
+          <p>
+            Ardından yeni bir komut penceresinde
+            <code>fastboot devices</code> çalıştırın. Bir seri numarası
+            görmelisiniz.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>3. Hâlâ görünmüyorsa</h2>
+          <ul>
+            <li>
+              Fastboot programı çok eskiyse güncel
+              <a
+                href="https://developer.android.com/tools/releases/platform-tools"
+                >SDK Platform-Tools</a
+              >
+              ile deneyin. Kurulumu
+              <a href="/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+                >Minimal ADB and Fastboot</a
+              >
+              yazısında.
+            </li>
+            <li>
+              Telefonun gerçekten fastboot'ta olduğundan emin olun. Recovery
+              ekranında fastboot komutları çalışmaz. Farkı
+              <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+                >fastboot nasıl açılır</a
+              >
+              yazısında.
+            </li>
+            <li>
+              Başka bir bilgisayar deneyin. Bu, sorunun telefonda mı
+              bilgisayarda mı olduğunu hemen gösterir.
+            </li>
+          </ul>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Mac ve Linux</h2>
+          <p>
+            Mac'te fastboot için ayrı bir sürücü gerekmez, Platform-Tools'u
+            açmanız yeter. Linux'ta normal kullanıcıyla erişim için udev kuralı
+            gerekebilir. Dağıtımların
+            <code>android-sdk-platform-tools-common</code> gibi paketleri bu
+            kuralları getirir. GM8 MIUI Installer ise sadece Windows'ta çalışır,
+            çünkü .NET Framework 4.7.2 ile yazılmış bir Windows Forms
+            uygulamasıdır.
+          </p>
+        </section>
+        <section class="wrap prose faq">
+          <h2>Sık sorulan sorular</h2>
+          <h3>ADB çalışıyor ama fastboot çalışmıyor, neden?</h3>
+          <p>
+            Telefon Android'de ve fastboot'ta USB'de farklı cihaz olarak
+            görünür. ADB sürücüsü kurulu olsa bile fastboot arayüzü (Android
+            Bootloader Interface) için sürücü ayrıca seçilmelidir.
+          </p>
+          <h3>Sürücü kurduktan sonra bilgisayarı yeniden başlatmalı mıyım?</h3>
+          <p>
+            Genelde gerekmez. Telefonu çıkarıp takmak ve yeni bir komut
+            penceresi açmak yeterlidir.
+          </p>
+        </section>
+      </article>
+      <section class="wrap prose related">
+        <h2>İlgili yazılar</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+              >Minimal ADB and Fastboot kurulumu (Windows)</a
+            >
+          </li>
+          <li>
+            <a
+              href="/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/"
+              >Telefonum fastboot modunda kaldı: ne yapmalı?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+              >Fastboot modu nasıl açılır?</a
+            >
+          </li>
+        </ul>
+        <p>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer ve komutları</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Tüm yazılar</a>
+        </p>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

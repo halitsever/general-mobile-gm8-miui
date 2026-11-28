@@ -1,0 +1,246 @@
+/* Blog and installer pages. The home page keeps Bootstrap and style.css. */
+:root {
+  --ink: #1d1d1f;
+  --dim: #55555c;
+  --line: #e6e6ea;
+  --bg: #ffffff;
+  --soft: #f6f6f8;
+  --accent: #f48000;
+  --accent-dark: #c25f00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font:
+    17px/1.65 -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--accent-dark);
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.bar {
+  background: #000;
+  color: #ddd;
+}
+
+.bar-inner {
+  max-width: 1040px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.bar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+}
+
+.bar nav a {
+  color: #ddd;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.bar nav a:hover,
+.bar nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.hero {
+  padding-top: 36px;
+  padding-bottom: 8px;
+}
+
+.crumbs {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--dim);
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 36px 0 12px;
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+h3 {
+  margin: 24px 0 8px;
+  font-size: 18px;
+}
+
+.meta {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: var(--dim);
+}
+
+.lead {
+  font-size: 19px;
+  color: var(--dim);
+}
+
+.prose p,
+.prose li {
+  color: var(--ink);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 22px;
+}
+
+.prose li {
+  margin: 6px 0;
+}
+
+code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--soft);
+  font:
+    0.9em/1.5 ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Consolas,
+    monospace;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #16161a;
+  color: #f2f2f2;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 15px;
+}
+
+th,
+td {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--soft);
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: #fd4900;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn.ghost {
+  background: var(--soft);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.post-list a {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.post-list p {
+  margin: 6px 0 0;
+  color: var(--dim);
+}
+
+.related,
+.faq {
+  margin-top: 24px;
+}
+
+.related {
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.foot {
+  margin-top: 48px;
+  padding: 24px 0;
+  background: var(--soft);
+  font-size: 14px;
+  color: var(--dim);
+}

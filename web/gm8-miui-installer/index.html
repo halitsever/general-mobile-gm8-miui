@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GM8 MIUI ROM Download: Kurulum Aracı ve Komutları</title>
+    <meta
+      name="description"
+      content="General Mobile GM8 için MIUI ROM download ve GM8 MIUI Installer: tek ve çift SIM kurulum adımları, aracın çalıştırdığı fastboot komutları ve bilinen hatalar."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/gm8-miui-installer/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="GM8 MIUI ROM Download: Kurulum Aracı ve Komutları"
+    />
+    <meta
+      property="og:description"
+      content="General Mobile GM8 için MIUI ROM download ve GM8 MIUI Installer: tek ve çift SIM kurulum adımları, aracın çalıştırdığı fastboot komutları ve bilinen hatalar."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/gm8-miui-installer/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "name": "GM8 MIUI Installer: ROM indirme ve kurulum",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/gm8-miui-installer/",
+            "description": "General Mobile GM8 için MIUI ROM download ve GM8 MIUI Installer: tek ve çift SIM kurulum adımları, aracın çalıştırdığı fastboot komutları ve bilinen hatalar.",
+            "inLanguage": "tr",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "GM8 MIUI Installer",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/gm8-miui-installer/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Kurulum ne kadar sürer?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Süre bilgisayara, kabloya ve USB portuna bağlıdır. ROM toplam 1,6 GB ve her bölüm iki slota yazılır. Yazma sürerken kabloyu çekmeyin."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Kurulumdan sonra telefon açılmazsa ne yapmalıyım?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Mi logosunda kalıyorsa boot imajını dev-config.exe ile yeniden yazın. Fastboot ekranına dönüyorsa bu kontrol listesini izleyin."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Eski yazılıma geri dönebilir miyim?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Fastboot çalıştığı sürece telefona başka bir yazılım yazılabilir. General Mobile'ın resmî yazılımı bu sitede yayımlanmıyor."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a
+            href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            aria-current="page"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <header class="hero wrap">
+        <p class="crumbs">
+          <a href="/general-mobile-gm8-miui/">Ana sayfa</a> › Kurulum aracı
+        </p>
+        <h1>GM8 MIUI Installer: ROM indirme ve kurulum</h1>
+        <p class="lead">
+          GM8 MIUI Installer, General Mobile GM8 için hazırlanan MIUI 11 ROM'u
+          telefona fastboot ile yazan küçük bir Windows uygulamasıdır. Bu sayfa
+          neyi indireceğinizi, kurulumun nasıl yapıldığını ve aracın arka planda
+          hangi komutları çalıştırdığını anlatıyor.
+        </p>
+        <p class="ctas">
+          <a class="btn" href="https://bit.ly/gm8miui_indir_p1"
+            >MIUI EU 11.0.10 indir (GDrive)</a
+          ><a
+            class="btn ghost"
+            href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >Kaynak kod</a
+          >
+        </p>
+      </header>
+
+      <section class="wrap prose">
+        <h2>Ne indirmeli?</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Sürüm</th>
+              <th>Modeller</th>
+              <th>Durum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>MIUI EU 11.0.10</td>
+              <td>GM8 ve GM8 2020 Edition, tek ve çift SIM</td>
+              <td>
+                Stabil, önerilen.
+                <a href="https://bit.ly/gm8miui_indir_p1"
+                  >Google Drive'dan indir</a
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>MIUI Global 11.0.7</td>
+              <td>Tek ve çift SIM</td>
+              <td>Stabil değil, artık indirilemiyor</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Tek bir indirme hem tek SIM hem çift SIM modeli kapsar. Model seçimi
+          kurulum aracında yapılır. ROM klasöründe kurulum aracı, imaj dosyaları
+          ve boot onarımı için <code>dev-config.exe</code> bulunur. GM8 Go
+          desteklenmiyor. Mi açılış logosu, Magisk, Dolby ve Google Kamera gibi
+          isteğe bağlı modlar
+          <a href="/general-mobile-gm8-miui/">ana sayfadaki</a>
+          MOD bölümünde.
+        </p>
+      </section>
+
+      <section class="wrap prose">
+        <h2>Gereksinimler</h2>
+        <ul>
+          <li>
+            Windows ve .NET Framework 4.7.2. Araç bir Windows Forms
+            uygulamasıdır.
+          </li>
+          <li>
+            <code>fastboot.exe</code>, aracın yanında ya da PATH üzerinde.
+            Google'ın
+            <a
+              href="https://developer.android.com/tools/releases/platform-tools"
+              >SDK Platform-Tools</a
+            >
+            paketinden gelir, kurulumu
+            <a href="/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+              >bu yazıda</a
+            >.
+          </li>
+          <li>Bootloader kilidi açık bir GM8 ve veri aktaran bir USB kablo.</li>
+          <li>Yedek. Kurulum kullanıcı verisini siler.</li>
+        </ul>
+      </section>
+
+      <section class="wrap prose">
+        <h2>Kurulum adımları</h2>
+        <ol>
+          <li>ROM'u indirip klasörü bir yere çıkarın.</li>
+          <li>
+            GM8'i
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+              >fastboot moduna alın</a
+            >
+            ve USB ile bağlayın.
+          </li>
+          <li>
+            Komut penceresinde <code>fastboot devices</code> ile telefonun
+            göründüğünü kontrol edin. Liste boşsa
+            <a href="/general-mobile-gm8-miui/blog/fastboot-driver/"
+              >sürücüyü kurun</a
+            >.
+          </li>
+          <li>ROM klasöründeki GM8 MIUI Installer'ı açın.</li>
+          <li>
+            <strong>SIM</strong> satırında <strong>Single</strong> ya da
+            <strong>Dual</strong> seçin.
+          </li>
+          <li>
+            <strong>INSTALL MIUI</strong> düğmesine basın. Her komut kendi
+            konsol penceresinde çalışır. Hepsi bitene kadar düğme kapalı kalır.
+          </li>
+          <li>
+            Son pencere kapanınca telefonu güç tuşuyla ya da
+            <code>fastboot reboot</code> ile yeniden başlatın.
+          </li>
+        </ol>
+      </section>
+
+      <section class="wrap prose">
+        <h2>Aracın çalıştırdığı fastboot komutları</h2>
+        <p>
+          Araç şu dokuz komutu sırayla çalıştırır.
+          <code>&lt;sim&gt;</code> yerine seçiminize göre <code>single</code> ya
+          da <code>dual</code> gelir:
+        </p>
+        <pre><code>fastboot erase userdata
+fastboot flash userdata &lt;sim&gt;/userdata.img
+fastboot flash system_a sistem/system.img
+fastboot flash system_b sistem/system.img
+fastboot flash boot_a &lt;sim&gt;/boot.img
+fastboot flash boot_b &lt;sim&gt;/boot.img
+fastboot flash vendor_a &lt;sim&gt;/vendor.img
+fastboot flash vendor_b &lt;sim&gt;/vendor.img
+fastboot flash splash &lt;sim&gt;/splash.img</code></pre>
+        <p>
+          System imajı iki SIM türünde de aynıdır, boot, vendor, userdata ve
+          splash imajları SIM türüne göre değişir. Her bölüm A ve B slotuna ayrı
+          ayrı yazılır, telefon hangi slottan açılırsa açılsın MIUI'yi bulur.
+          Komutları isterseniz araç olmadan, ROM klasöründe kendiniz de
+          çalıştırabilirsiniz. A/B slotlarının ne olduğu
+          <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+            >fastboot ne demek</a
+          >
+          yazısında anlatılıyor.
+        </p>
+      </section>
+
+      <section class="wrap prose">
+        <h2>Bilinen hatalar ve uyarılar</h2>
+        <ul>
+          <li>
+            Bluetooth kulaklıkla telefon görüşmesi yapılamıyor. Müzik dinlemek
+            çalışıyor.
+          </li>
+          <li>
+            Root ve modlar telefonu Mi logosunda bırakabiliyor. Çözüm:
+            <code>dev-config.exe</code> içinde
+            <code>fastboot flash boot single/boot.img</code> (çift SIM'de
+            <code>dual/boot.img</code>).
+          </li>
+          <li>
+            MIUI optimizasyonunu açmayın, Xiaomi cihazlarına göre yapılmış.
+          </li>
+          <li>
+            Kurulum aracının son hali bir cihaz üzerinde denenmedi. Komut
+            listesi yukarıda, araç çalışmazsa aynı komutları elle
+            çalıştırabilirsiniz.
+          </li>
+        </ul>
+        <p>
+          Bu proje resmî bir General Mobile ya da Xiaomi yazılımı değildir.
+          Kurulumdan doğan sorumluluk kurana aittir.
+        </p>
+      </section>
+
+      <section class="wrap prose">
+        <h2>Kaynak kod</h2>
+        <p>
+          Kurulum aracı MIT lisanslı ve
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub'da</a
+          >. Derlemek için Visual Studio'da
+          <code>src/GM8 MIUI.sln</code> açılır, NuGet paketleri geri yüklenir ve
+          proje derlenir. Arayüz MaterialSkin.2 kütüphanesini kullanır.
+        </p>
+      </section>
+      <section class="wrap prose faq">
+        <h2>Sık sorulan sorular</h2>
+        <h3>Kurulum ne kadar sürer?</h3>
+        <p>
+          Süre bilgisayara, kabloya ve USB portuna bağlıdır. ROM toplam 1,6 GB
+          ve her bölüm iki slota yazılır. Yazma sürerken kabloyu çekmeyin.
+        </p>
+        <h3>Kurulumdan sonra telefon açılmazsa ne yapmalıyım?</h3>
+        <p>
+          Mi logosunda kalıyorsa boot imajını <code>dev-config.exe</code> ile
+          yeniden yazın. Fastboot ekranına dönüyorsa
+          <a
+            href="/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/"
+            >bu kontrol listesini</a
+          >
+          izleyin.
+        </p>
+        <h3>Eski yazılıma geri dönebilir miyim?</h3>
+        <p>
+          Fastboot çalıştığı sürece telefona başka bir yazılım yazılabilir.
+          General Mobile'ın resmî yazılımı bu sitede yayımlanmıyor.
+        </p>
+      </section>
+      <section class="wrap prose related">
+        <h2>Fastboot rehberleri</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              >Fastboot ne demek? Fastboot modu nedir?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-kapatilir/"
+              >Fastboot nasıl kapatılır? Fastboot modundan çıkma yolları</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+              >Minimal ADB and Fastboot kurulumu (Windows)</a
+            >
+          </li>
+          <li>
+            <a
+              href="/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/"
+              >Telefonum fastboot modunda kaldı: ne yapmalı?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+              >Fastboot modu nasıl açılır?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/miui-rom-nedir/"
+              >MIUI ROM nedir? Xiaomi dışı telefonda MIUI</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-driver/"
+              >Fastboot driver kurulumu: cihaz görünmüyorsa</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/gsi-rom-nedir/"
+              >GSI ROM nedir?</a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

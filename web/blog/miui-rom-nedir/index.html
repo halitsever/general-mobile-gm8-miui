@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MIUI ROM Nedir? Xiaomi Dışı Telefonda MIUI</title>
+    <meta
+      name="description"
+      content="MIUI ROM nedir, MIUI EU ile Global ROM farkı ne? GM8 için hazırlanan MIUI 11 ROM&#x27;un neye dayandığı, nelerin çalıştığı ve bilinen hatalar bu yazıda."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/miui-rom-nedir/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="MIUI ROM Nedir? Xiaomi Dışı Telefonda MIUI"
+    />
+    <meta
+      property="og:description"
+      content="MIUI ROM nedir, MIUI EU ile Global ROM farkı ne? GM8 için hazırlanan MIUI 11 ROM&#x27;un neye dayandığı, nelerin çalıştığı ve bilinen hatalar bu yazıda."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/miui-rom-nedir/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "MIUI ROM nedir? Xiaomi dışı telefonda MIUI",
+            "description": "MIUI ROM nedir, MIUI EU ile Global ROM farkı ne? GM8 için hazırlanan MIUI 11 ROM'un neye dayandığı, nelerin çalıştığı ve bilinen hatalar bu yazıda.",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/miui-rom-nedir/",
+            "mainEntityOfPage": "https://projects.halit.org/general-mobile-gm8-miui/blog/miui-rom-nedir/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/general-mobile-gm8-miui/og.png",
+            "keywords": "miui rom",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "MIUI ROM nedir? Xiaomi dışı telefonda MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/miui-rom-nedir/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "MIUI ROM her telefona kurulur mu?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hayır. ROM'un o telefonun donanımı için hazırlanmış olması gerekir. GM8 için hazırlanan ROM sadece General Mobile GM8 ve GM8 2020 Edition içindir."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "MIUI kurmak garantiyi bozar mı?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Bootloader kilidini açmak ve resmî olmayan yazılım kurmak üreticinin garanti şartlarını etkileyebilir. Kendi cihazınızın şartlarını üreticiden kontrol edin."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header class="hero wrap">
+          <p class="crumbs">
+            <a href="/general-mobile-gm8-miui/">Ana sayfa</a> ›
+            <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+          </p>
+          <h1>MIUI ROM nedir? Xiaomi dışı telefonda MIUI</h1>
+          <p class="meta">
+            Yazan <a href="https://halit.org">Halit Sever</a> ·
+            <time datetime="2026-11-28">28 Kasım 2026</time>
+          </p>
+          <p class="lead">
+            MIUI, Xiaomi'nin Android üzerine yaptığı kullanıcı arayüzüdür. MIUI
+            ROM denince bu arayüzü taşıyan sistem yazılımı kastedilir. Bu sayfa
+            MIUI'nin ne olduğunu ve General Mobile GM8 gibi Xiaomi olmayan bir
+            telefona nasıl kurulabildiğini anlatıyor.
+          </p>
+        </header>
+
+        <section class="wrap prose">
+          <h2>ROM ne demek?</h2>
+          <p>
+            Telefon dünyasında ROM, telefonun sistem yazılımı demektir:
+            Android'in kendisi, üreticinin arayüzü ve hazır gelen uygulamalar.
+            Üreticinin dağıttığına resmî ROM (stok ROM), başkalarının
+            hazırladığına custom ROM denir. Custom ROM'lar telefona çoğunlukla
+            fastboot ile yazılır.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>MIUI nedir?</h2>
+          <p>
+            MIUI, Xiaomi'nin Android tabanlı arayüzüdür. Kendi ayarlar
+            uygulaması, kamerası, temaları ve sistem uygulamalarıyla gelir.
+            Xiaomi 2023'te MIUI'nin yerini HyperOS'un alacağını duyurdu, bu
+            yüzden yeni Xiaomi telefonlarda MIUI yerine HyperOS görürsünüz. GM8
+            için hazırlanan ROM ise MIUI 11 tabanlıdır.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>MIUI EU ve MIUI Global farkı</h2>
+          <ul>
+            <li>
+              <strong>MIUI Global</strong>, Xiaomi'nin Çin dışı pazarlar için
+              dağıttığı resmî sürümdür.
+            </li>
+            <li>
+              <strong>MIUI EU</strong> (xiaomi.eu), topluluğun hazırladığı bir
+              sürümdür. Çok dilli gelir ve resmî Global sürümden ayrı
+              yayımlanır.
+            </li>
+          </ul>
+          <p>GM8 sitesinde iki sürüm yayımlandı:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Sürüm</th>
+                <th>Durum</th>
+                <th>İndirme</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MIUI EU 11.0.10</td>
+                <td>Stabil, önerilen</td>
+                <td>Tek ve çift SIM, Google Drive</td>
+              </tr>
+              <tr>
+                <td>MIUI Global 11.0.7</td>
+                <td>Stabil değil</td>
+                <td>Artık indirilemiyor</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Xiaomi olmayan telefonda MIUI nasıl çalışır?</h2>
+          <p>
+            MIUI, Xiaomi telefonlar için yazılır. Başka bir telefona taşımak
+            için ROM'un o telefonun donanım sürücüleriyle çalışması gerekir. GM8
+            MIUI ROM
+            <a href="/general-mobile-gm8-miui/blog/gsi-rom-nedir/"
+              >GSI tabanlıdır</a
+            >: Android'in Project Treble ile ayırdığı sistem ve donanım
+            katmanları sayesinde sistem imajı GM8'in donanım tarafıyla birlikte
+            çalışabilir. Kurulum aracı da system imajının yanında GM8'e göre
+            hazırlanmış boot ve vendor imajlarını yazar.
+          </p>
+          <p>ROM'un sayfasına göre çalışanlar:</p>
+          <ul>
+            <li>A ve B slotlarına kurulum, toplam 1,6 GB</li>
+            <li>MIUI Kamera</li>
+            <li>Eksik sistem uygulamaları kurulmuş ve güncellenmiş</li>
+            <li>Parlaklık sorunu ve flaş düzeltilmiş</li>
+            <li>VoLTE ve parmak izi</li>
+          </ul>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Bilinen hatalar ve uyarılar</h2>
+          <ul>
+            <li>
+              Bluetooth kulaklıkla telefon görüşmesi yapılamıyor. Bluetooth
+              kulaklıkla müzik dinlemek çalışıyor.
+            </li>
+            <li>
+              Root ve mod kurmak telefonu Mi logosunda bırakabiliyor. Çözümü
+              <a
+                href="/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/"
+                >boot imajını yeniden yazmak</a
+              >.
+            </li>
+            <li>
+              MIUI optimizasyonunu açmak önerilmiyor, çünkü Xiaomi cihazlarına
+              göre yapılmış.
+            </li>
+          </ul>
+          <p>
+            Bu ROM resmî bir General Mobile ya da Xiaomi yazılımı değildir.
+            Kurulum kullanıcı verisini siler ve sorumluluk kuranın
+            kendisindedir.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>MIUI ROM download</h2>
+          <p>
+            GM8 için MIUI EU 11.0.10 ROM'u
+            <a href="/general-mobile-gm8-miui/">ana sayfadan</a>
+            indirebilirsiniz. Kurulum adımları, aracın çalıştırdığı komutlar ve
+            gereksinimler
+            <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+              >GM8 MIUI Installer</a
+            >
+            sayfasında.
+          </p>
+        </section>
+        <section class="wrap prose faq">
+          <h2>Sık sorulan sorular</h2>
+          <h3>MIUI ROM her telefona kurulur mu?</h3>
+          <p>
+            Hayır. ROM'un o telefonun donanımı için hazırlanmış olması gerekir.
+            GM8 için hazırlanan ROM sadece General Mobile GM8 ve GM8 2020
+            Edition içindir.
+          </p>
+          <h3>MIUI kurmak garantiyi bozar mı?</h3>
+          <p>
+            Bootloader kilidini açmak ve resmî olmayan yazılım kurmak üreticinin
+            garanti şartlarını etkileyebilir. Kendi cihazınızın şartlarını
+            üreticiden kontrol edin.
+          </p>
+        </section>
+      </article>
+      <section class="wrap prose related">
+        <h2>İlgili yazılar</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              >Fastboot ne demek? Fastboot modu nedir?</a
+            >
+          </li>
+          <li>
+            <a
+              href="/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/"
+              >Telefonum fastboot modunda kaldı: ne yapmalı?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/gsi-rom-nedir/"
+              >GSI ROM nedir?</a
+            >
+          </li>
+        </ul>
+        <p>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer ve komutları</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Tüm yazılar</a>
+        </p>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

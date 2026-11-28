@@ -35,7 +35,9 @@ jobs:
         uses: actions/configure-pages@v5
       # The repo keeps readable CSS. Pages gets a minified copy because Semrush flags unminified files.
       - name: Minify CSS
-        run: npx --yes esbuild@0.28.2 web/style/style.css --minify --outfile=web/style/style.css --allow-overwrite
+        run: |
+          npx --yes esbuild@0.28.2 web/style/style.css --minify --outfile=web/style/style.css --allow-overwrite
+          npx --yes esbuild@0.28.2 web/style/blog.css --minify --outfile=web/style/blog.css --allow-overwrite
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

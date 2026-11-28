@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fastboot Ne Demek? Fastboot Modu Nedir, Ne İşe Yarar?</title>
+    <meta
+      name="description"
+      content="Fastboot ne demek, telefonda fastboot modu nedir ve ne işe yarar? Bootloader modu, temel fastboot komutları, A/B slotları ve moddan çıkış tek sayfada."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="Fastboot Ne Demek? Fastboot Modu Nedir, Ne İşe Yarar?"
+    />
+    <meta
+      property="og:description"
+      content="Fastboot ne demek, telefonda fastboot modu nedir ve ne işe yarar? Bootloader modu, temel fastboot komutları, A/B slotları ve moddan çıkış tek sayfada."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Fastboot ne demek? Fastboot modu nedir?",
+            "description": "Fastboot ne demek, telefonda fastboot modu nedir ve ne işe yarar? Bootloader modu, temel fastboot komutları, A/B slotları ve moddan çıkış tek sayfada.",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-ne-demek/",
+            "mainEntityOfPage": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-ne-demek/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/general-mobile-gm8-miui/og.png",
+            "keywords": "fastboot ne demek",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Fastboot ne demek? Fastboot modu nedir?",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Fastboot modu telefona zarar verir mi?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hayır. Mod sadece komut bekler. Zarar, yanlış imajı yanlış bölüme yazmaktan ya da yazma sürerken kabloyu çekmekten gelir."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Fastboot modunda veriler silinir mi?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Moda girmek veri silmez. fastboot erase userdata komutu ve bootloader kilidini açmak ise kullanıcı verisini siler."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Fastboot ile recovery aynı şey mi?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hayır. Recovery, telefonun içinde çalışan ayrı bir küçük sistemdir ve menüsü telefonun ekranından kullanılır. Fastboot önyükleyicinin modudur ve komutlar bilgisayardan gelir."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header class="hero wrap">
+          <p class="crumbs">
+            <a href="/general-mobile-gm8-miui/">Ana sayfa</a> ›
+            <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+          </p>
+          <h1>Fastboot ne demek? Fastboot modu nedir?</h1>
+          <p class="meta">
+            Yazan <a href="https://halit.org">Halit Sever</a> ·
+            <time datetime="2026-11-28">28 Kasım 2026</time>
+          </p>
+          <p class="lead">
+            Telefonunuzun ekranında birden FASTBOOT yazısını gördüyseniz telefon
+            bozulmuş değildir. Android açılmadan önce çalışan önyükleyici
+            (bootloader) bekleme moduna geçmiştir. Fastboot hem bu modun hem de
+            bilgisayarla telefonun bu modda konuştuğu protokolün adıdır.
+          </p>
+        </header>
+
+        <section class="wrap prose">
+          <h2>Kısa cevap: fastboot ne demek?</h2>
+          <p>
+            Fastboot, Android telefonların önyükleyicisinde bulunan bir moddur.
+            Telefon bu moda girdiğinde Android'i başlatmaz, USB kablosundan
+            gelecek komutları bekler. Bilgisayardaki
+            <code>fastboot</code> programı bu komutları gönderir: bir bölümü
+            (partition) silmek, yerine yeni bir imaj yazmak, telefonu yeniden
+            başlatmak gibi.
+          </p>
+          <p>
+            İsmi İngilizce "hızlı açılış" gibi okunsa da Windows'taki Hızlı
+            Başlatma ile ya da bazı telefonların ayarlarındaki "hızlı açılış"
+            seçeneğiyle ilgisi yoktur. Buradaki fastboot, yazılım yükleme ve
+            onarım için kullanılan alt seviye bir moddur.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Telefonda fastboot ne demek, neden açıldı?</h2>
+          <p>Fastboot ekranı genelde üç sebepten biriyle karşınıza çıkar:</p>
+          <ul>
+            <li>
+              Telefon kapalıyken güç tuşuyla birlikte ses tuşlarından birine
+              basılı kaldı. Birçok modelde bu, fastboot'un tuş kombinasyonudur.
+            </li>
+            <li>
+              Bilgisayardan <code>adb reboot bootloader</code> komutu
+              çalıştırıldı.
+            </li>
+            <li>
+              Telefon Android'i açamadı ve önyükleyicide kaldı. Bu durum genelde
+              yarım kalan bir güncellemeden ya da bozuk bir boot bölümünden
+              olur.
+            </li>
+          </ul>
+          <p>
+            İlk iki durumda telefonu yeniden başlatmanız yeterlidir. Güç tuşuna
+            uzun basmak çoğu telefonda işe yarar. Bütün yollar
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-kapatilir/"
+              >fastboot nasıl kapatılır</a
+            >
+            yazısında. Telefon her açılışta tekrar fastboot'a dönüyorsa
+            <a
+              href="/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/"
+              >fastboot modunda kalan telefon</a
+            >
+            yazısına bakın.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Fastboot modunda neler yapılır?</h2>
+          <p>
+            Fastboot komutlarını göndermek için bilgisayarda Google'ın
+            <a
+              href="https://developer.android.com/tools/releases/platform-tools"
+              >SDK Platform-Tools</a
+            >
+            paketindeki <code>fastboot</code> programı gerekir. Telefonu USB ile
+            bağladıktan sonra en sık kullanılan komutlar şunlardır:
+          </p>
+          <pre><code>fastboot devices                  # bağlı telefonu listeler
+fastboot getvar all               # önyükleyici bilgilerini yazar
+fastboot flash boot boot.img      # boot bölümüne imaj yazar
+fastboot erase userdata           # kullanıcı verisini siler
+fastboot boot twrp.img            # imajı yazmadan bir kez başlatır
+fastboot reboot                   # Android&#x27;i başlatır
+fastboot reboot bootloader        # fastboot moduna geri döner</code></pre>
+          <p>
+            <code>flash</code> komutu bir bölümün içeriğini verdiğiniz dosyayla
+            değiştirir. Custom ROM, recovery (TWRP gibi) ve resmî yazılım
+            kurulumlarının hepsi bu komutla yapılır. <code>boot</code> komutu
+            ise imajı telefona kalıcı olarak yazmadan bir kez çalıştırır, bu
+            yüzden bir recovery'yi denemek için güvenli bir yoldur.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Fastboot ile ADB arasındaki fark</h2>
+          <p>
+            İkisi de Platform-Tools içinde gelir ve çoğu zaman birlikte anılır,
+            ama farklı anlarda çalışırlar.
+            <strong>ADB</strong>, Android açıkken ve USB hata ayıklama etkinken
+            çalışır: dosya kopyalar, uygulama kurar, telefonu yeniden başlatır.
+            <strong>Fastboot</strong> ise Android kapalıyken, önyükleyicide
+            çalışır ve bölümlere doğrudan yazar. Tipik akış şudur: ADB ile
+            telefonu fastboot'a alırsınız, fastboot ile imajları yazarsınız,
+            sonra <code>fastboot reboot</code> ile Android'e dönersiniz.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Bootloader kilidi</h2>
+          <p>
+            Çoğu telefon kilitli önyükleyiciyle satılır. Kilitli bir telefonda
+            fastboot açılır ama kendi imajınızı yazmanıza izin vermez. Kilit
+            <code>fastboot flashing unlock</code> komutuyla (eski cihazlarda
+            <code>fastboot oem unlock</code>) açılır ve telefon onay ister.
+            Android'in
+            <a
+              href="https://source.android.com/docs/core/architecture/bootloader/locking_unlocking"
+              >bootloader kilidi belgesi</a
+            >ne göre kilit açılırken kullanıcı verisi silinir, yani telefon
+            sıfırlanır. Kilidi açmadan önce yedek alın.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>A/B slotları: system_a ve system_b ne demek?</h2>
+          <p>
+            Bazı telefonlarda önemli bölümlerin iki kopyası vardır ve adlarının
+            sonuna <code>_a</code> ve <code>_b</code> eklenir. Google bu yapıya
+            A/B sistem güncellemeleri der: telefon bir kopyadan çalışırken
+            güncelleme diğerine yazılır. Hangi kopyanın etkin olduğunu
+            <code>fastboot getvar current-slot</code>
+            gösterir.
+          </p>
+          <p>
+            General Mobile GM8 de bu yapıdadır.
+            <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+              >GM8 MIUI Installer</a
+            >, ROM'u iki slota birden yazar, böylece telefon hangi slottan
+            açılırsa açılsın aynı sistemi bulur. Aracın sırayla çalıştırdığı
+            komutlar şunlardır (<code>&lt;sim&gt;</code> yerine
+            <code>single</code> ya da <code>dual</code> gelir):
+          </p>
+          <pre><code>fastboot erase userdata
+fastboot flash userdata &lt;sim&gt;/userdata.img
+fastboot flash system_a sistem/system.img
+fastboot flash system_b sistem/system.img
+fastboot flash boot_a &lt;sim&gt;/boot.img
+fastboot flash boot_b &lt;sim&gt;/boot.img
+fastboot flash vendor_a &lt;sim&gt;/vendor.img
+fastboot flash vendor_b &lt;sim&gt;/vendor.img
+fastboot flash splash &lt;sim&gt;/splash.img</code></pre>
+          <p>
+            Önce kullanıcı verisi silinir ve yeni userdata imajı yazılır.
+            Ardından system, boot ve vendor bölümleri iki slota da yazılır. En
+            sonda <code>splash</code> bölümüne açılış görseli gelir.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Fastbootd: Android 10 ve sonrası</h2>
+          <p>
+            Android 10 ile gelen dinamik bölümlü telefonlarda fastboot'un bir
+            kısmı Android'in içine taşındı ve adına fastbootd dendi. Bu
+            telefonlarda <code>fastboot reboot fastboot</code> komutu
+            fastbootd'yi açar, system ve vendor gibi bölümler oradan yazılır.
+            Önyükleyicideki klasik fastboot modu yine vardır. Telefonunuzun
+            hangi modda ne yazdığını üreticinin kurulum talimatı söyler.
+          </p>
+        </section>
+        <section class="wrap prose faq">
+          <h2>Sık sorulan sorular</h2>
+          <h3>Fastboot modu telefona zarar verir mi?</h3>
+          <p>
+            Hayır. Mod sadece komut bekler. Zarar, yanlış imajı yanlış bölüme
+            yazmaktan ya da yazma sürerken kabloyu çekmekten gelir.
+          </p>
+          <h3>Fastboot modunda veriler silinir mi?</h3>
+          <p>
+            Moda girmek veri silmez. <code>fastboot erase userdata</code> komutu
+            ve bootloader kilidini açmak ise kullanıcı verisini siler.
+          </p>
+          <h3>Fastboot ile recovery aynı şey mi?</h3>
+          <p>
+            Hayır. Recovery, telefonun içinde çalışan ayrı bir küçük sistemdir
+            ve menüsü telefonun ekranından kullanılır. Fastboot önyükleyicinin
+            modudur ve komutlar bilgisayardan gelir.
+          </p>
+        </section>
+      </article>
+      <section class="wrap prose related">
+        <h2>İlgili yazılar</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-kapatilir/"
+              >Fastboot nasıl kapatılır? Fastboot modundan çıkma yolları</a
+            >
+          </li>
+          <li>
+            <a
+              href="/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/"
+              >Telefonum fastboot modunda kaldı: ne yapmalı?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+              >Fastboot modu nasıl açılır?</a
+            >
+          </li>
+        </ul>
+        <p>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer ve komutları</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Tüm yazılar</a>
+        </p>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

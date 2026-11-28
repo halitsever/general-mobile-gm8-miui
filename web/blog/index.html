@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fastboot Rehberleri: GM8, ADB ve ROM Kurulumu</title>
+    <meta
+      name="description"
+      content="Fastboot ne demek, nasıl açılır ve kapatılır, sürücü ve ADB kurulumu, MIUI ve GSI ROM nedir? GM8 MIUI kurulumunun dayandığı komutlar Türkçe ve sade anlatılıyor."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="Fastboot Rehberleri: GM8, ADB ve ROM Kurulumu"
+    />
+    <meta
+      property="og:description"
+      content="Fastboot ne demek, nasıl açılır ve kapatılır, sürücü ve ADB kurulumu, MIUI ve GSI ROM nedir? GM8 MIUI kurulumunun dayandığı komutlar Türkçe ve sade anlatılıyor."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Blog",
+            "name": "GMIUI blog",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/",
+            "description": "Fastboot ne demek, nasıl açılır ve kapatılır, sürücü ve ADB kurulumu, MIUI ve GSI ROM nedir? GM8 MIUI kurulumunun dayandığı komutlar Türkçe ve sade anlatılıyor.",
+            "inLanguage": "tr",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "blogPost": [
+              {
+                "@type": "BlogPosting",
+                "headline": "Fastboot ne demek? Fastboot modu nedir?",
+                "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-ne-demek/",
+                "datePublished": "2026-11-28",
+                "author": {
+                  "@type": "Person",
+                  "name": "Halit Sever",
+                  "jobTitle": "Developer",
+                  "url": "https://halit.org"
+                }
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "Fastboot nasıl kapatılır? Fastboot modundan çıkma yolları",
+                "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-kapatilir/",
+                "datePublished": "2026-11-28",
+                "author": {
+                  "@type": "Person",
+                  "name": "Halit Sever",
+                  "jobTitle": "Developer",
+                  "url": "https://halit.org"
+                }
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "Minimal ADB and Fastboot kurulumu (Windows)",
+                "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/",
+                "datePublished": "2026-11-28",
+                "author": {
+                  "@type": "Person",
+                  "name": "Halit Sever",
+                  "jobTitle": "Developer",
+                  "url": "https://halit.org"
+                }
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "Telefonum fastboot modunda kaldı: ne yapmalı?",
+                "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/",
+                "datePublished": "2026-11-28",
+                "author": {
+                  "@type": "Person",
+                  "name": "Halit Sever",
+                  "jobTitle": "Developer",
+                  "url": "https://halit.org"
+                }
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "Fastboot modu nasıl açılır?",
+                "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/",
+                "datePublished": "2026-11-28",
+                "author": {
+                  "@type": "Person",
+                  "name": "Halit Sever",
+                  "jobTitle": "Developer",
+                  "url": "https://halit.org"
+                }
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "MIUI ROM nedir? Xiaomi dışı telefonda MIUI",
+                "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/miui-rom-nedir/",
+                "datePublished": "2026-11-28",
+                "author": {
+                  "@type": "Person",
+                  "name": "Halit Sever",
+                  "jobTitle": "Developer",
+                  "url": "https://halit.org"
+                }
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "Fastboot driver kurulumu: cihaz görünmüyorsa",
+                "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-driver/",
+                "datePublished": "2026-11-28",
+                "author": {
+                  "@type": "Person",
+                  "name": "Halit Sever",
+                  "jobTitle": "Developer",
+                  "url": "https://halit.org"
+                }
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "GSI ROM nedir?",
+                "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/gsi-rom-nedir/",
+                "datePublished": "2026-11-28",
+                "author": {
+                  "@type": "Person",
+                  "name": "Halit Sever",
+                  "jobTitle": "Developer",
+                  "url": "https://halit.org"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero wrap">
+        <p class="crumbs">
+          <a href="/general-mobile-gm8-miui/">Ana sayfa</a> › Blog
+        </p>
+        <h1>Fastboot ve ROM rehberleri</h1>
+        <p class="lead">
+          GM8 MIUI ROM'u telefona fastboot ile yazılıyor. Bu yazılar fastboot
+          modunu, ADB'yi, sürücüleri ve ROM türlerini anlatıyor. Örnekler
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >'ın gerçekte çalıştırdığı komutlardan geliyor.
+        </p>
+      </section>
+      <section class="wrap prose" aria-label="Yazılar">
+        <ul class="post-list">
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              >Fastboot ne demek? Fastboot modu nedir?</a
+            >
+            <p>
+              Fastboot ne demek, telefonda fastboot modu nedir ve ne işe yarar?
+              Bootloader modu, temel fastboot komutları, A/B slotları ve moddan
+              çıkış tek sayfada.
+            </p>
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-kapatilir/"
+              >Fastboot nasıl kapatılır? Fastboot modundan çıkma yolları</a
+            >
+            <p>
+              Fastboot nasıl kapatılır, fastboot modundan nasıl çıkılır? Güç
+              tuşu, önyükleyici menüsü ve fastboot reboot ile çıkış, telefon
+              geri dönüyorsa yapılacaklar.
+            </p>
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+              >Minimal ADB and Fastboot kurulumu (Windows)</a
+            >
+            <p>
+              Minimal ADB and Fastboot nedir, Windows&#x27;a nasıl kurulur?
+              Google&#x27;ın resmî Platform-Tools paketi, PATH ayarı ve
+              kurulumun fastboot devices ile kontrol edilmesi.
+            </p>
+          </li>
+          <li>
+            <a
+              href="/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/"
+              >Telefonum fastboot modunda kaldı: ne yapmalı?</a
+            >
+            <p>
+              Telefonunuz fastboot modunda kaldıysa ya da ekranda sürekli
+              fastboot yazıyorsa sırayla kontrol edilecekler: tuşlar, yeniden
+              başlatma, slot seçimi ve boot imajı.
+            </p>
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+              >Fastboot modu nasıl açılır?</a
+            >
+            <p>
+              Fastboot modu nasıl açılır? Tuş kombinasyonu ve her
+              Android&#x27;de çalışan adb reboot bootloader komutu, USB hata
+              ayıklamayı açma ve bağlantıyı test etme adımları.
+            </p>
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/miui-rom-nedir/"
+              >MIUI ROM nedir? Xiaomi dışı telefonda MIUI</a
+            >
+            <p>
+              MIUI ROM nedir, MIUI EU ile Global ROM farkı ne? GM8 için
+              hazırlanan MIUI 11 ROM&#x27;un neye dayandığı, nelerin çalıştığı
+              ve bilinen hatalar bu yazıda.
+            </p>
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-driver/"
+              >Fastboot driver kurulumu: cihaz görünmüyorsa</a
+            >
+            <p>
+              fastboot devices boş mu, waiting for any device mı yazıyor?
+              Windows&#x27;ta fastboot driver kurulumu, Aygıt Yöneticisi
+              adımları ve kablo ile port kontrolleri.
+            </p>
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/gsi-rom-nedir/"
+              >GSI ROM nedir?</a
+            >
+            <p>
+              GSI ROM nedir, Project Treble ne işe yarar, telefonun GSI
+              destekleyip desteklemediği nasıl anlaşılır? Genel kurulum adımları
+              ve GM8 MIUI ROM ile ilişkisi.
+            </p>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
