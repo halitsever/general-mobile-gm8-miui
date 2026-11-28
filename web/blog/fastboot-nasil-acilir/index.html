@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fastboot Modu Nasıl Açılır? Tuşlar ve ADB Komutu</title>
+    <meta
+      name="description"
+      content="Fastboot modu nasıl açılır? Tuş kombinasyonu ve her Android&#x27;de çalışan adb reboot bootloader komutu, USB hata ayıklamayı açma ve bağlantıyı test etme adımları."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="Fastboot Modu Nasıl Açılır? Tuşlar ve ADB Komutu"
+    />
+    <meta
+      property="og:description"
+      content="Fastboot modu nasıl açılır? Tuş kombinasyonu ve her Android&#x27;de çalışan adb reboot bootloader komutu, USB hata ayıklamayı açma ve bağlantıyı test etme adımları."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Fastboot modu nasıl açılır?",
+            "description": "Fastboot modu nasıl açılır? Tuş kombinasyonu ve her Android'de çalışan adb reboot bootloader komutu, USB hata ayıklamayı açma ve bağlantıyı test etme adımları.",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/",
+            "mainEntityOfPage": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/general-mobile-gm8-miui/og.png",
+            "keywords": "fastboot nasıl açılır",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Fastboot modu nasıl açılır?",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Mi fastboot ne demek?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Xiaomi telefonların fastboot ekranıdır. Ekranda Mi logosu ve FASTBOOT yazısı görünür, işlev olarak diğer Android telefonlardaki fastboot ile aynıdır."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Bilgisayar olmadan fastboot açılır mı?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Evet, tuş kombinasyonuyla açılır. Fastboot'ta bir şey yazmak içinse bilgisayar ve USB kablo gerekir."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header class="hero wrap">
+          <p class="crumbs">
+            <a href="/general-mobile-gm8-miui/">Ana sayfa</a> ›
+            <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+          </p>
+          <h1>Fastboot modu nasıl açılır?</h1>
+          <p class="meta">
+            Yazan <a href="https://halit.org">Halit Sever</a> ·
+            <time datetime="2026-11-28">28 Kasım 2026</time>
+          </p>
+          <p class="lead">
+            Fastboot moduna iki yoldan girilir: telefon kapalıyken tuşlarla ya
+            da telefon açıkken bilgisayardan bir ADB komutuyla. Tuşlar modele
+            göre değişir, ADB komutu ise her Android telefonda aynıdır.
+          </p>
+        </header>
+
+        <section class="wrap prose">
+          <h2>Tuşlarla fastboot'a girme</h2>
+          <ol>
+            <li>Telefonu tamamen kapatın.</li>
+            <li>Ses kısma tuşunu basılı tutun.</li>
+            <li>Ses kısmayı bırakmadan güç tuşuna da basın.</li>
+            <li>
+              Ekranda FASTBOOT yazısı ya da önyükleyici menüsü çıkınca tuşları
+              bırakın.
+            </li>
+          </ol>
+          <p>
+            Güç ve ses kısma, birçok Android telefonda fastboot'un tuş
+            kombinasyonudur. Xiaomi'nin bootloader kilit açma talimatında da bu
+            kombinasyon geçer. Bazı modellerde ise ses açma ya da iki ses tuşu
+            birden kullanılır. GM8 için bir tuş kombinasyonunu burada
+            yazmıyoruz, çünkü kendimiz doğrulamadık. Emin değilseniz aşağıdaki
+            ADB yolunu kullanın.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>ADB ile: adb reboot bootloader</h2>
+          <p>Bu yol telefon açıkken çalışır ve tuşlarla uğraştırmaz.</p>
+          <ol>
+            <li>
+              <strong>Ayarlar › Telefon hakkında</strong> bölümünde
+              <strong>Yapı numarası</strong>'na yedi kez dokunun. Geliştirici
+              seçenekleri açılır.
+            </li>
+            <li>
+              <strong>Ayarlar › Sistem › Geliştirici seçenekleri</strong> içinde
+              <strong>USB hata ayıklama</strong>'yı açın.
+            </li>
+            <li>
+              Telefonu USB ile bilgisayara bağlayın ve telefonda çıkan "USB hata
+              ayıklamaya izin verilsin mi?" sorusunu onaylayın.
+            </li>
+            <li>Bilgisayarda şu komutları çalıştırın:</li>
+          </ol>
+          <pre><code>adb devices
+adb reboot bootloader
+fastboot devices</code></pre>
+          <p>
+            <code>adb devices</code> telefonu <code>device</code> olarak
+            listelemelidir. <code>unauthorized</code>
+            yazıyorsa telefondaki izin sorusunu onaylamamışsınızdır. İkinci
+            komut telefonu fastboot'a alır, üçüncüsü de fastboot bağlantısını
+            doğrular. Bilgisayarda bu programlar yoksa önce
+            <a href="/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+              >ADB ve fastboot kurulumunu</a
+            >
+            yapın.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>GM8'de fastboot ve MIUI kurulumu</h2>
+          <p>
+            GM8 MIUI kurulumunun ilk adımı da budur: telefonu fastboot moduna
+            alıp USB ile bağlamak. Ardından
+            <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+              >GM8 MIUI Installer</a
+            >'da <strong>Single</strong> ya da <strong>Dual</strong> SIM seçilip
+            <strong>INSTALL MIUI</strong>
+            düğmesine basılır. Kurulumdan önce bootloader kilidinin açık olması
+            gerekir. Kilit açılırken telefon sıfırlanır.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Fastboot mu, recovery mi?</h2>
+          <p>
+            Tuşlarla girdiğiniz ekranda dokunmatik bir menü (TWRP gibi) ya da
+            "Recovery" başlığı görüyorsanız fastboot'a değil recovery'ye
+            girmişsinizdir. Recovery telefonun içinde çalışan ayrı bir
+            sistemdir. Farkları
+            <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              >fastboot ne demek</a
+            >
+            yazısında. Recovery'den fastboot'a geçmek için menüde
+            <strong>Reboot › Bootloader</strong> benzeri bir seçenek arayın ya
+            da <code>adb reboot bootloader</code>
+            komutunu kullanın.
+          </p>
+        </section>
+        <section class="wrap prose faq">
+          <h2>Sık sorulan sorular</h2>
+          <h3>Mi fastboot ne demek?</h3>
+          <p>
+            Xiaomi telefonların fastboot ekranıdır. Ekranda Mi logosu ve
+            FASTBOOT yazısı görünür, işlev olarak diğer Android telefonlardaki
+            fastboot ile aynıdır.
+          </p>
+          <h3>Bilgisayar olmadan fastboot açılır mı?</h3>
+          <p>
+            Evet, tuş kombinasyonuyla açılır. Fastboot'ta bir şey yazmak içinse
+            bilgisayar ve USB kablo gerekir.
+          </p>
+        </section>
+      </article>
+      <section class="wrap prose related">
+        <h2>İlgili yazılar</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              >Fastboot ne demek? Fastboot modu nedir?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-kapatilir/"
+              >Fastboot nasıl kapatılır? Fastboot modundan çıkma yolları</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+              >Minimal ADB and Fastboot kurulumu (Windows)</a
+            >
+          </li>
+        </ul>
+        <p>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer ve komutları</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Tüm yazılar</a>
+        </p>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Minimal ADB and Fastboot Kurulumu ve Resmî Alternatifi</title>
+    <meta
+      name="description"
+      content="Minimal ADB and Fastboot nedir, Windows&#x27;a nasıl kurulur? Google&#x27;ın resmî Platform-Tools paketi, PATH ayarı ve kurulumun fastboot devices ile kontrol edilmesi."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="Minimal ADB and Fastboot Kurulumu ve Resmî Alternatifi"
+    />
+    <meta
+      property="og:description"
+      content="Minimal ADB and Fastboot nedir, Windows&#x27;a nasıl kurulur? Google&#x27;ın resmî Platform-Tools paketi, PATH ayarı ve kurulumun fastboot devices ile kontrol edilmesi."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Minimal ADB and Fastboot kurulumu (Windows)",
+            "description": "Minimal ADB and Fastboot nedir, Windows'a nasıl kurulur? Google'ın resmî Platform-Tools paketi, PATH ayarı ve kurulumun fastboot devices ile kontrol edilmesi.",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/",
+            "mainEntityOfPage": "https://projects.halit.org/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/general-mobile-gm8-miui/og.png",
+            "keywords": "minimal adb and fastboot",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Minimal ADB and Fastboot kurulumu (Windows)",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Minimal ADB and Fastboot güvenli mi?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Paket Google'ın değildir. İndirdiğiniz kopyanın kaynağından emin değilseniz aynı programları Google'ın Platform-Tools sayfasından indirin."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Mac ve Linux'ta nasıl kurulur?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Platform-Tools sayfasında Mac ve Linux için de zip var. Zip'i açıp klasörü PATH'e eklemek yeterli."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header class="hero wrap">
+          <p class="crumbs">
+            <a href="/general-mobile-gm8-miui/">Ana sayfa</a> ›
+            <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+          </p>
+          <h1>Minimal ADB and Fastboot kurulumu (Windows)</h1>
+          <p class="meta">
+            Yazan <a href="https://halit.org">Halit Sever</a> ·
+            <time datetime="2026-11-28">28 Kasım 2026</time>
+          </p>
+          <p class="lead">
+            Minimal ADB and Fastboot, ADB ve fastboot programlarını Windows'a
+            tek kurulumla getiren küçük bir pakettir. Yıllardır forumlarda
+            önerilir. Aynı iki programın güncel sürümü ise doğrudan Google'dan
+            ücretsiz indirilebilir. Bu yazı ikisini de anlatıyor.
+          </p>
+        </header>
+
+        <section class="wrap prose">
+          <h2>Minimal ADB and Fastboot nedir?</h2>
+          <p>
+            XDA forumunda paylaşılmış, Google'a ait olmayan bir kurulum
+            paketidir. İçinde <code>adb.exe</code>, <code>fastboot.exe</code> ve
+            bunların çalışması için gereken birkaç DLL bulunur. Kurulumdan sonra
+            başlat menüsüne, o klasörde komut penceresi açan bir kısayol ekler.
+            Tam Android SDK'yı indirmek istemeyenler için yapılmıştı.
+          </p>
+          <p>
+            Paketin içindeki sürümler, kurduğunuz paketin yayımlandığı tarihteki
+            sürümlerdir. Yeni telefonlar ve fastbootd gibi özellikler güncel
+            fastboot ister. O yüzden bugün aynı işi Google'ın resmî paketiyle
+            yapmak daha doğru.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Resmî yol: SDK Platform-Tools</h2>
+          <p>
+            Google, ADB ve fastboot'u
+            <a
+              href="https://developer.android.com/tools/releases/platform-tools"
+              >SDK Platform-Tools</a
+            >
+            adıyla tek bir zip olarak yayımlıyor. Kurulum gerekmez:
+          </p>
+          <ol>
+            <li>
+              Platform-Tools sayfasından
+              <strong>Download SDK Platform-Tools for Windows</strong>
+              bağlantısına tıklayın ve lisansı onaylayın.
+            </li>
+            <li>
+              Zip'i kısa bir yola çıkarın, örneğin
+              <code>C:\platform-tools</code>.
+            </li>
+            <li>
+              Klasörü açın, adres çubuğuna <code>cmd</code> yazıp Enter'a basın.
+              O klasörde bir komut penceresi açılır.
+            </li>
+            <li>Kurulumu kontrol edin:</li>
+          </ol>
+          <pre><code>adb version
+fastboot --version</code></pre>
+          <p>İki komut da sürüm numarası yazıyorsa programlar hazırdır.</p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Her klasörden çalışsın: PATH ayarı</h2>
+          <p>
+            Komutları sadece o klasörde değil her yerde kullanmak için klasörü
+            PATH'e ekleyin:
+          </p>
+          <ol>
+            <li>
+              Başlat menüsüne "ortam değişkenleri" yazın ve
+              <strong>Sistem ortam değişkenlerini düzenleyin</strong> seçeneğini
+              açın.
+            </li>
+            <li><strong>Ortam Değişkenleri</strong> düğmesine tıklayın.</li>
+            <li>
+              Kullanıcı değişkenlerinde <strong>Path</strong> satırını seçip
+              <strong>Düzenle</strong>'ye tıklayın.
+            </li>
+            <li>
+              <strong>Yeni</strong> deyip <code>C:\platform-tools</code> yazın,
+              pencereleri Tamam ile kapatın.
+            </li>
+            <li>
+              Yeni bir komut penceresi açın ve
+              <code>fastboot --version</code> ile deneyin.
+            </li>
+          </ol>
+        </section>
+
+        <section class="wrap prose">
+          <h2>GM8 MIUI Installer için fastboot</h2>
+          <p>
+            <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+              >GM8 MIUI Installer</a
+            >
+            her komutu <code>fastboot.exe</code> üzerinden çalıştırır. Bu yüzden
+            <code>fastboot.exe</code> ya uygulamanın yanında ya da PATH üzerinde
+            olmalıdır. Yukarıdaki PATH ayarını yaptıysanız ek bir şey gerekmez.
+            Diğer seçenek, Platform-Tools klasöründeki
+            <code>fastboot.exe</code>, <code>AdbWinApi.dll</code> ve
+            <code>AdbWinUsbApi.dll</code> dosyalarını kurulum aracının bulunduğu
+            klasöre kopyalamaktır.
+          </p>
+          <p>
+            Telefonu
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+              >fastboot moduna alın</a
+            >, USB ile bağlayın ve <code>fastboot devices</code> yazın. Bir seri
+            numarası görmüyorsanız sorun programda değil sürücüdedir:
+            <a href="/general-mobile-gm8-miui/blog/fastboot-driver/"
+              >fastboot driver kurulumu</a
+            >
+            yazısına geçin.
+          </p>
+        </section>
+        <section class="wrap prose faq">
+          <h2>Sık sorulan sorular</h2>
+          <h3>Minimal ADB and Fastboot güvenli mi?</h3>
+          <p>
+            Paket Google'ın değildir. İndirdiğiniz kopyanın kaynağından emin
+            değilseniz aynı programları Google'ın Platform-Tools sayfasından
+            indirin.
+          </p>
+          <h3>Mac ve Linux&#x27;ta nasıl kurulur?</h3>
+          <p>
+            Platform-Tools sayfasında Mac ve Linux için de zip var. Zip'i açıp
+            klasörü PATH'e eklemek yeterli.
+          </p>
+        </section>
+      </article>
+      <section class="wrap prose related">
+        <h2>İlgili yazılar</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              >Fastboot ne demek? Fastboot modu nedir?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+              >Fastboot modu nasıl açılır?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-driver/"
+              >Fastboot driver kurulumu: cihaz görünmüyorsa</a
+            >
+          </li>
+        </ul>
+        <p>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer ve komutları</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Tüm yazılar</a>
+        </p>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

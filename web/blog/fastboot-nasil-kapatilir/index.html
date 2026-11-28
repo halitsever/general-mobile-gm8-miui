@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fastboot Nasıl Kapatılır? Fastboot Modundan Çıkma</title>
+    <meta
+      name="description"
+      content="Fastboot nasıl kapatılır, fastboot modundan nasıl çıkılır? Güç tuşu, önyükleyici menüsü ve fastboot reboot ile çıkış, telefon geri dönüyorsa yapılacaklar."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-kapatilir/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="Fastboot Nasıl Kapatılır? Fastboot Modundan Çıkma"
+    />
+    <meta
+      property="og:description"
+      content="Fastboot nasıl kapatılır, fastboot modundan nasıl çıkılır? Güç tuşu, önyükleyici menüsü ve fastboot reboot ile çıkış, telefon geri dönüyorsa yapılacaklar."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-kapatilir/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Fastboot nasıl kapatılır? Fastboot modundan çıkma yolları",
+            "description": "Fastboot nasıl kapatılır, fastboot modundan nasıl çıkılır? Güç tuşu, önyükleyici menüsü ve fastboot reboot ile çıkış, telefon geri dönüyorsa yapılacaklar.",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-kapatilir/",
+            "mainEntityOfPage": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-kapatilir/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/general-mobile-gm8-miui/og.png",
+            "keywords": "fastboot nasıl kapatılır",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Fastboot nasıl kapatılır? Fastboot modundan çıkma yolları",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-kapatilir/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Fastboot modu kendiliğinden kapanır mı?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hayır. Telefon siz yeniden başlatana kadar ya da pil bitene kadar bu ekranda bekler. Pilin bitmesini beklemek önerilmez."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Fastboot'tan çıkınca veriler silinir mi?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hayır. Sadece yeniden başlatmak hiçbir şeyi silmez. Veri silen şey fastboot erase gibi komutlardır."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header class="hero wrap">
+          <p class="crumbs">
+            <a href="/general-mobile-gm8-miui/">Ana sayfa</a> ›
+            <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+          </p>
+          <h1>Fastboot nasıl kapatılır? Fastboot modundan çıkma yolları</h1>
+          <p class="meta">
+            Yazan <a href="https://halit.org">Halit Sever</a> ·
+            <time datetime="2026-11-28">28 Kasım 2026</time>
+          </p>
+          <p class="lead">
+            Fastboot modu kendi kendine kapanmaz, telefon siz bir şey yapana
+            kadar bekler. Çıkmanın üç yolu var. Hangisini seçeceğiniz elinizde
+            bilgisayar olup olmamasına bağlı.
+          </p>
+        </header>
+
+        <section class="wrap prose">
+          <h2>1. Güç tuşuna uzun basın</h2>
+          <p>
+            En kolay yol budur. Güç tuşunu ekran kararıp telefon yeniden
+            başlayana kadar basılı tutun. Çoğu Android telefonda bu 10 ile 20
+            saniye sürer. Telefon normal şekilde Android'i açar.
+          </p>
+          <p>
+            Ses kısma ya da ses açma tuşuna da basılı tutarsanız telefon yine
+            fastboot'a veya recovery'ye girebilir. Bu yüzden sadece güç tuşuna
+            basın.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>2. Önyükleyici menüsünden seçin</h2>
+          <p>
+            Bazı telefonların fastboot ekranında bir menü olur. Ekranın üstünde
+            <strong>START</strong>, <strong>Restart bootloader</strong>,
+            <strong>Recovery mode</strong>, <strong>Power off</strong> gibi
+            seçenekler görüyorsanız:
+          </p>
+          <ol>
+            <li>Ses tuşlarıyla seçenekler arasında gezin.</li>
+            <li>
+              <strong>START</strong> (ya da <strong>Reboot</strong>) seçeneğine
+              gelin.
+            </li>
+            <li>Güç tuşuna bir kez basarak onaylayın.</li>
+          </ol>
+          <p>
+            Telefonu tamamen kapatmak isterseniz
+            <strong>Power off</strong> seçeneğini kullanın. Ekranda menü yoksa
+            ve sadece bir logo ile FASTBOOT yazısı varsa birinci ya da üçüncü
+            yolu kullanın.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>3. Bilgisayardan fastboot reboot</h2>
+          <p>
+            Telefon USB ile bilgisayara bağlıysa ve bilgisayarda fastboot
+            kuruluysa tek komut yeter:
+          </p>
+          <pre><code>fastboot devices
+fastboot reboot</code></pre>
+          <p>
+            İlk komut telefonun görüldüğünü doğrular ve seri numarasını yazar.
+            Liste boşsa sürücü ya da kablo sorunu vardır,
+            <a href="/general-mobile-gm8-miui/blog/fastboot-driver/"
+              >fastboot driver yazısı</a
+            >
+            bunu anlatıyor. Fastboot programı yoksa
+            <a href="/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+              >ADB ve fastboot kurulumu</a
+            >
+            yazısına bakın.
+          </p>
+          <p>Aynı programla başka yerlere de geçebilirsiniz:</p>
+          <pre><code>fastboot reboot bootloader   # fastboot&#x27;u yeniden başlatır
+fastboot reboot recovery     # recovery&#x27;ye geçer (destekleyen cihazlarda)</code></pre>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Telefon tekrar fastboot'a dönüyorsa</h2>
+          <p>
+            Yeniden başlattığınız halde telefon her seferinde fastboot ekranına
+            geliyorsa sorun moddan çıkmak değil, Android'in açılamamasıdır. Sık
+            görülen sebepler yarım kalmış bir yazma işlemi, bozuk bir boot
+            bölümü ya da takılı kalan bir ses tuşudur. Adım adım kontrol listesi
+            <a
+              href="/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/"
+              >telefon fastboot modunda kaldı</a
+            >
+            yazısında.
+          </p>
+          <p>
+            GM8'e MIUI kurduysanız ve telefon Mi logosunda kalıyorsa, ROM
+            klasöründeki <code>dev-config.exe</code> programını açıp
+            <code>fastboot flash boot single/boot.img</code> yazın (çift SIM
+            modelde <code>dual/boot.img</code>). Bu komut boot bölümünü ROM'la
+            gelen haline döndürür.
+          </p>
+        </section>
+        <section class="wrap prose faq">
+          <h2>Sık sorulan sorular</h2>
+          <h3>Fastboot modu kendiliğinden kapanır mı?</h3>
+          <p>
+            Hayır. Telefon siz yeniden başlatana kadar ya da pil bitene kadar bu
+            ekranda bekler. Pilin bitmesini beklemek önerilmez.
+          </p>
+          <h3>Fastboot&#x27;tan çıkınca veriler silinir mi?</h3>
+          <p>
+            Hayır. Sadece yeniden başlatmak hiçbir şeyi silmez. Veri silen şey
+            <code>fastboot erase</code> gibi komutlardır.
+          </p>
+        </section>
+      </article>
+      <section class="wrap prose related">
+        <h2>İlgili yazılar</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              >Fastboot ne demek? Fastboot modu nedir?</a
+            >
+          </li>
+          <li>
+            <a
+              href="/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/"
+              >Telefonum fastboot modunda kaldı: ne yapmalı?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+              >Fastboot modu nasıl açılır?</a
+            >
+          </li>
+        </ul>
+        <p>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer ve komutları</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Tüm yazılar</a>
+        </p>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

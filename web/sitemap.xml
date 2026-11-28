@@ -2,5 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://projects.halit.org/general-mobile-gm8-miui/</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+  <url>
+    <loc>https://projects.halit.org/general-mobile-gm8-miui/gm8-miui-installer/</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+  <url>
+    <loc>https://projects.halit.org/general-mobile-gm8-miui/blog/</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+  <url>
+    <loc>https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-ne-demek/</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+  <url>
+    <loc>https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-kapatilir/</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+  <url>
+    <loc>https://projects.halit.org/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+  <url>
+    <loc>https://projects.halit.org/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+  <url>
+    <loc>https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+  <url>
+    <loc>https://projects.halit.org/general-mobile-gm8-miui/blog/miui-rom-nedir/</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+  <url>
+    <loc>https://projects.halit.org/general-mobile-gm8-miui/blog/fastboot-driver/</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+  <url>
+    <loc>https://projects.halit.org/general-mobile-gm8-miui/blog/gsi-rom-nedir/</loc>
+    <lastmod>2026-11-28</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GSI ROM Nedir? Project Treble ve Kurulum Mantığı</title>
+    <meta
+      name="description"
+      content="GSI ROM nedir, Project Treble ne işe yarar, telefonun GSI destekleyip desteklemediği nasıl anlaşılır? Genel kurulum adımları ve GM8 MIUI ROM ile ilişkisi."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/gsi-rom-nedir/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="GSI ROM Nedir? Project Treble ve Kurulum Mantığı"
+    />
+    <meta
+      property="og:description"
+      content="GSI ROM nedir, Project Treble ne işe yarar, telefonun GSI destekleyip desteklemediği nasıl anlaşılır? Genel kurulum adımları ve GM8 MIUI ROM ile ilişkisi."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/gsi-rom-nedir/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "GSI ROM nedir?",
+            "description": "GSI ROM nedir, Project Treble ne işe yarar, telefonun GSI destekleyip desteklemediği nasıl anlaşılır? Genel kurulum adımları ve GM8 MIUI ROM ile ilişkisi.",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/gsi-rom-nedir/",
+            "mainEntityOfPage": "https://projects.halit.org/general-mobile-gm8-miui/blog/gsi-rom-nedir/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/general-mobile-gm8-miui/og.png",
+            "keywords": "gsi rom",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "GSI ROM nedir?",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/gsi-rom-nedir/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "GSI ile custom ROM aynı şey mi?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "GSI bir custom ROM türüdür. Fark, belli bir telefona değil Treble uyumlu telefonlara genel olarak hazırlanmasıdır."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "GSI kurunca telefon bozulur mu?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Uyumsuz bir imaj telefonu açmayabilir, ama fastboot çalıştığı sürece resmî yazılımı tekrar yazarak geri dönülebilir. Yine de kurulum kullanıcı verisini siler."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header class="hero wrap">
+          <p class="crumbs">
+            <a href="/general-mobile-gm8-miui/">Ana sayfa</a> ›
+            <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+          </p>
+          <h1>GSI ROM nedir?</h1>
+          <p class="meta">
+            Yazan <a href="https://halit.org">Halit Sever</a> ·
+            <time datetime="2026-11-28">28 Kasım 2026</time>
+          </p>
+          <p class="lead">
+            GSI, Generic System Image yani genel sistem imajı demektir. Belli
+            bir telefon için değil, Android'in ortak donanım arayüzüne uyan her
+            telefon için hazırlanmış bir system imajıdır. GM8 MIUI ROM da GSI
+            tabanlıdır.
+          </p>
+        </header>
+
+        <section class="wrap prose">
+          <h2>Project Treble ve GSI</h2>
+          <p>
+            Android 8.0 ile gelen Project Treble, Android'in sistem kısmını
+            üreticinin donanım kodundan ayırdı. Donanım sürücüleri vendor
+            bölümünde, Android'in kendisi system bölümünde durur ve ikisi sabit
+            bir arayüzle konuşur. Bu sayede aynı system imajı, Treble uyumlu
+            farklı telefonlarda açılabilir. Google bu imajlara
+            <a href="https://source.android.com/docs/core/tests/vts/gsi"
+              >Generic System Image</a
+            >
+            der ve saf Android GSI'larını kendisi yayımlar. Topluluk da başka
+            arayüzlerle GSI hazırlar.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Telefonum GSI destekliyor mu?</h2>
+          <p>USB hata ayıklama açıkken şu komutlar fikir verir:</p>
+          <pre><code>adb shell getprop ro.treble.enabled     # true ise Treble uyumlu
+adb shell getprop ro.product.cpu.abi    # arm64-v8a gibi işlemci mimarisi
+adb shell getprop ro.boot.slot_suffix   # _a ya da _b çıkıyorsa A/B telefon</code></pre>
+          <p>
+            GSI seçerken üç bilgiye bakılır: Treble desteği, işlemci mimarisi
+            (arm64 gibi) ve telefonun A/B mi tek slotlu mu olduğu. Yanlış türde
+            imaj telefonu açmaz.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Genel kurulum mantığı</h2>
+          <p>
+            Kesin adımlar telefona ve imaja göre değişir, ama çoğu GSI kurulumu
+            şu sırayı izler. Bootloader kilidi açık olmalıdır.
+          </p>
+          <pre><code>fastboot erase userdata
+fastboot flash system system.img
+fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img
+fastboot reboot</code></pre>
+          <p>
+            Vbmeta satırı, telefonun doğrulanmış açılış kontrolünü yeni system
+            imajı için kapatır. Hangi telefonda gerektiği değişir, imajı
+            hazırlayanın talimatına uyun. Bir GSI'ın açılması, kameradan
+            Bluetooth'a kadar her donanımın çalışacağı anlamına gelmez. Eksikler
+            için genelde ayrıca düzeltmeler gerekir.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>GM8 MIUI ROM'da GSI</h2>
+          <p>
+            GM8 MIUI ROM'un system imajı GSI tabanlıdır, ama kurulum sadece
+            system yazmakla bitmez.
+            <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+              >GM8 MIUI Installer</a
+            >
+            şunları da yazar:
+          </p>
+          <ul>
+            <li>
+              <code>sistem/system.img</code> dosyasını <code>system_a</code> ve
+              <code>system_b</code> bölümlerine,
+            </li>
+            <li>
+              seçtiğiniz SIM türüne göre <code>boot.img</code> ve
+              <code>vendor.img</code> dosyalarını iki slota,
+            </li>
+            <li>
+              yeni bir <code>userdata.img</code> ve açılış görseli için
+              <code>splash.img</code>.
+            </li>
+          </ul>
+          <p>
+            Yani GSI'ın GM8'de çalışması için gereken boot ve vendor imajları da
+            ROM'la geliyor. Kameradan parmak izine, çalışan ve çalışmayan
+            özelliklerin listesi
+            <a href="/general-mobile-gm8-miui/blog/miui-rom-nedir/"
+              >MIUI ROM nedir</a
+            >
+            yazısında.
+          </p>
+        </section>
+        <section class="wrap prose faq">
+          <h2>Sık sorulan sorular</h2>
+          <h3>GSI ile custom ROM aynı şey mi?</h3>
+          <p>
+            GSI bir custom ROM türüdür. Fark, belli bir telefona değil Treble
+            uyumlu telefonlara genel olarak hazırlanmasıdır.
+          </p>
+          <h3>GSI kurunca telefon bozulur mu?</h3>
+          <p>
+            Uyumsuz bir imaj telefonu açmayabilir, ama fastboot çalıştığı sürece
+            resmî yazılımı tekrar yazarak geri dönülebilir. Yine de kurulum
+            kullanıcı verisini siler.
+          </p>
+        </section>
+      </article>
+      <section class="wrap prose related">
+        <h2>İlgili yazılar</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              >Fastboot ne demek? Fastboot modu nedir?</a
+            >
+          </li>
+          <li>
+            <a
+              href="/general-mobile-gm8-miui/blog/telefon-fastboot-modunda-kaldi/"
+              >Telefonum fastboot modunda kaldı: ne yapmalı?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/miui-rom-nedir/"
+              >MIUI ROM nedir? Xiaomi dışı telefonda MIUI</a
+            >
+          </li>
+        </ul>
+        <p>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer ve komutları</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Tüm yazılar</a>
+        </p>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
