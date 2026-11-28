@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Geliştirici Seçenekleri Açma ve Kapatma (Android)</title>
+    <meta
+      name="description"
+      content="Android&#x27;de geliştirici seçenekleri açma: Yapı numarasına yedi kez dokunma, menünün yeri, USB hata ayıklama ve OEM kilidi açma, geliştirici seçenekleri kapatma."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/gelistirici-secenekleri-acma/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="Geliştirici Seçenekleri Açma ve Kapatma (Android)"
+    />
+    <meta
+      property="og:description"
+      content="Android&#x27;de geliştirici seçenekleri açma: Yapı numarasına yedi kez dokunma, menünün yeri, USB hata ayıklama ve OEM kilidi açma, geliştirici seçenekleri kapatma."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/gelistirici-secenekleri-acma/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Android'de geliştirici seçenekleri nasıl açılır?",
+            "description": "Android'de geliştirici seçenekleri açma: Yapı numarasına yedi kez dokunma, menünün yeri, USB hata ayıklama ve OEM kilidi açma, geliştirici seçenekleri kapatma.",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/gelistirici-secenekleri-acma/",
+            "mainEntityOfPage": "https://projects.halit.org/general-mobile-gm8-miui/blog/gelistirici-secenekleri-acma/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/general-mobile-gm8-miui/og.png",
+            "keywords": "geliştirici seçenekleri açma",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Android'de geliştirici seçenekleri nasıl açılır?",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/gelistirici-secenekleri-acma/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Geliştirici seçenekleri nasıl açılır?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Ayarlar'da Yapı numarası satırına yedi kez dokunun. Geri döndüğünüzde Geliştirici seçenekleri menüsü listede görünür. MIUI'de dokunulacak satır MIUI sürümü'dür."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Geliştirici seçenekleri açık kalırsa zararı olur mu?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Menünün açık olması tek başına bir şey değiştirmez. İçindeki ayarlar, özellikle USB hata ayıklama, bilgisayarlara telefona erişim izni verir; kullanmadığınızda kapatmak daha güvenlidir."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "USB hata ayıklama nasıl açılır?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Önce geliştirici seçeneklerini açın, sonra menünün içindeki USB hata ayıklama anahtarını açın ve telefonu bilgisayara bağladığınızda çıkan onay penceresini kabul edin."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Geliştirici seçenekleri nasıl kapatılır?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Menünün en üstündeki ana anahtarı kapatın. Bu, içindeki seçeneklerin çoğunu da devre dışı bırakır."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header class="hero wrap">
+          <p class="crumbs">
+            <a href="/general-mobile-gm8-miui/">Ana sayfa</a> ›
+            <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+          </p>
+          <h1>Android&#x27;de geliştirici seçenekleri nasıl açılır?</h1>
+          <p class="meta">
+            Yazan <a href="https://halit.org">Halit Sever</a> ·
+            <time datetime="2026-11-28">28 Kasım 2026</time>
+          </p>
+          <p class="lead">
+            Geliştirici seçenekleri, Android'in normalde gizli tuttuğu bir ayar
+            ekranıdır. ADB ile bilgisayardan komut göndermek, bootloader
+            kilidini açmak ya da animasyonları kısaltmak için önce bu ekranı
+            açmanız gerekir.
+          </p>
+        </header>
+
+        <section class="wrap prose">
+          <h2>Geliştirici seçenekleri nasıl açılır?</h2>
+          <p>
+            <a href="https://developer.android.com/studio/debug/dev-options"
+              >Android geliştirici belgesi</a
+            >ne göre Android 4.2 ve sonrasında ekran gizlidir ve şöyle açılır:
+          </p>
+          <ol>
+            <li>
+              <strong>Ayarlar</strong>'ı açın ve
+              <strong>Yapı numarası</strong> satırını bulun.
+            </li>
+            <li>
+              Yapı numarasına art arda <strong>yedi kez</strong> dokunun. "Artık
+              bir geliştiricisiniz" mesajı çıkar.
+            </li>
+            <li>
+              Bir önceki ekrana dönün.
+              <strong>Geliştirici seçenekleri</strong> listenin altında görünür.
+            </li>
+          </ol>
+          <p>Yapı numarasının yeri markaya göre değişir. Belgedeki örnekler:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Cihaz</th>
+                <th>Yol</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Google Pixel</td>
+                <td>Ayarlar › Telefon hakkında › Yapı numarası</td>
+              </tr>
+              <tr>
+                <td>Samsung Galaxy S8 ve sonrası</td>
+                <td>
+                  Ayarlar › Telefon hakkında › Yazılım bilgileri › Yapı numarası
+                </td>
+              </tr>
+              <tr>
+                <td>OnePlus 5T ve sonrası</td>
+                <td>Ayarlar › Telefon hakkında › Yapı numarası</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            MIUI'de aynı satırın adı <strong>MIUI sürümü</strong>'dür ve
+            <strong>Telefon hakkında</strong> ekranında durur; yedi dokunuş ona
+            yapılır. Belgenin de belirttiği gibi bazı cihazlarda menünün adı ve
+            yeri farklı olabilir.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Menü nerede?</h2>
+          <p>Android 9 ve sonrasında belgeye göre yol şudur:</p>
+          <pre><code>Ayarlar › Sistem › Gelişmiş › Geliştirici seçenekleri</code></pre>
+          <p>
+            Android 8.0 ve 8.1'de <strong>Gelişmiş</strong> adımı yoktur:
+            Ayarlar › Sistem › Geliştirici seçenekleri. Birçok üretici menüyü
+            kendi yerine taşır. Bulamazsanız Ayarlar'daki arama kutusuna
+            "geliştirici" yazın.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>İçindeki önemli iki ayar</h2>
+          <h3>USB hata ayıklama</h3>
+          <p>
+            Bilgisayardaki <code>adb</code> aracının telefonla konuşmasını
+            sağlar. Açtıktan sonra telefonu USB ile bağladığınızda ekranda
+            bilgisayarın parmak izini onaylamanızı isteyen bir pencere çıkar.
+            Onaylamazsanız ADB komutları çalışmaz. Kontrol etmek için:
+          </p>
+          <pre><code>adb devices
+# List of devices attached
+# 1a2b3c4d   device        &lt;- bağlı ve onaylı
+# 1a2b3c4d   unauthorized  &lt;- telefondaki onayı bekliyor</code></pre>
+          <h3>OEM kilidi açma</h3>
+          <p>
+            Bootloader kilidinin açılmasına izin verir. Bu ayar kapalıyken
+            <code>fastboot flashing unlock</code> komutu reddedilir. Ayrıntılar
+            <a href="/general-mobile-gm8-miui/blog/bootloader-kilidi-acma/"
+              >bootloader kilidi açma</a
+            >
+            yazısında.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Geliştirici seçenekleri kapatma</h2>
+          <p>
+            Ekranın en üstünde bir ana anahtar vardır.
+            <a href="https://developer.android.com/studio/debug/dev-options"
+              >Android geliştirici belgesi</a
+            >
+            bunu açık tutmayı önerir, çünkü kapalıyken seçeneklerin çoğu devre
+            dışı kalır. Menüyle işiniz bittiyse bu anahtarı kapatmak yeterlidir.
+            Menü listeden kaybolmazsa bazı cihazlarda Ayarlar uygulamasının
+            verilerini temizlemek onu yeniden gizler, ama bu Ayarlar'daki bazı
+            tercihleri de sıfırlayabilir.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>GM8 MIUI kurulumu için</h2>
+          <p>
+            <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+              >GM8 MIUI Installer</a
+            >
+            telefonla fastboot üzerinden konuşur, ADB'ye ihtiyacı yoktur. Ama
+            telefonu fastboot moduna bilgisayardan almak (<code
+              >adb reboot bootloader</code
+            >) ve OEM kilidini açmak için bu menü gerekir. Tuşlarla fastboot'a
+            girmek
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+              >fastboot modu nasıl açılır</a
+            >
+            yazısında.
+          </p>
+        </section>
+        <section class="wrap prose faq">
+          <h2>Sık sorulan sorular</h2>
+          <h3>Geliştirici seçenekleri nasıl açılır?</h3>
+          <p>
+            Ayarlar'da Yapı numarası satırına yedi kez dokunun. Geri
+            döndüğünüzde Geliştirici seçenekleri menüsü listede görünür. MIUI'de
+            dokunulacak satır MIUI sürümü'dür.
+          </p>
+          <h3>Geliştirici seçenekleri açık kalırsa zararı olur mu?</h3>
+          <p>
+            Menünün açık olması tek başına bir şey değiştirmez. İçindeki
+            ayarlar, özellikle USB hata ayıklama, bilgisayarlara telefona erişim
+            izni verir; kullanmadığınızda kapatmak daha güvenlidir.
+          </p>
+          <h3>USB hata ayıklama nasıl açılır?</h3>
+          <p>
+            Önce geliştirici seçeneklerini açın, sonra menünün içindeki USB hata
+            ayıklama anahtarını açın ve telefonu bilgisayara bağladığınızda
+            çıkan onay penceresini kabul edin.
+          </p>
+          <h3>Geliştirici seçenekleri nasıl kapatılır?</h3>
+          <p>
+            Menünün en üstündeki ana anahtarı kapatın. Bu, içindeki seçeneklerin
+            çoğunu da devre dışı bırakır.
+          </p>
+        </section>
+      </article>
+      <section class="wrap prose related">
+        <h2>İlgili yazılar</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/minimal-adb-and-fastboot/"
+              >Minimal ADB and Fastboot kurulumu (Windows)</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-nasil-acilir/"
+              >Fastboot modu nasıl açılır?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/bootloader-kilidi-acma/"
+              >Bootloader nedir, kilidi nasıl açılır ve kapatılır?</a
+            >
+          </li>
+        </ul>
+        <p>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer ve komutları</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Tüm yazılar</a>
+        </p>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

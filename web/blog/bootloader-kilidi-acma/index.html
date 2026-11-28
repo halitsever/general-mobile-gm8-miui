@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootloader Kilidi Açma: Bootloader Nedir, Ne Demek?</title>
+    <meta
+      name="description"
+      content="Bootloader ne demek, bootloader kilidi nedir? OEM kilidi açma ayarı, fastboot flashing unlock komutu, veri silinmesi ve kilidi kapatma adımları sade Türkçe."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/bootloader-kilidi-acma/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="Bootloader Kilidi Açma: Bootloader Nedir, Ne Demek?"
+    />
+    <meta
+      property="og:description"
+      content="Bootloader ne demek, bootloader kilidi nedir? OEM kilidi açma ayarı, fastboot flashing unlock komutu, veri silinmesi ve kilidi kapatma adımları sade Türkçe."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/bootloader-kilidi-acma/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Bootloader nedir, kilidi nasıl açılır ve kapatılır?",
+            "description": "Bootloader ne demek, bootloader kilidi nedir? OEM kilidi açma ayarı, fastboot flashing unlock komutu, veri silinmesi ve kilidi kapatma adımları sade Türkçe.",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/bootloader-kilidi-acma/",
+            "mainEntityOfPage": "https://projects.halit.org/general-mobile-gm8-miui/blog/bootloader-kilidi-acma/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/general-mobile-gm8-miui/og.png",
+            "keywords": "bootloader kilidi açma",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Bootloader nedir, kilidi nasıl açılır ve kapatılır?",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/bootloader-kilidi-acma/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Bootloader ne demek?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Telefon açılırken Android'den önce çalışan önyükleyici programdır. Hangi yazılımın başlatılacağına karar verir, fastboot modu da onun içindedir."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Bootloader kilidi açılınca veriler silinir mi?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Evet. Android'in belgesine göre kilit açılırken cihaz, veriye yetkisiz erişimi önlemek için fabrika ayarlarına sıfırlanır."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Reboot to bootloader ne demek?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Telefonu önyükleyiciye, yani fastboot moduna yeniden başlat demektir. Bilgisayardan aynı işi adb reboot bootloader yapar."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "OEM kilidi açma seçeneği görünmüyor, neden?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Seçenek geliştirici seçeneklerinin içindedir; önce onları açmak gerekir. Bazı cihazlarda üretici bu seçeneği sunmaz ya da ek adımlar ister."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header class="hero wrap">
+          <p class="crumbs">
+            <a href="/general-mobile-gm8-miui/">Ana sayfa</a> ›
+            <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+          </p>
+          <h1>Bootloader nedir, kilidi nasıl açılır ve kapatılır?</h1>
+          <p class="meta">
+            Yazan <a href="https://halit.org">Halit Sever</a> ·
+            <time datetime="2026-11-28">28 Kasım 2026</time>
+          </p>
+          <p class="lead">
+            Bootloader, telefon açılırken Android'den önce çalışan ve hangi
+            yazılımın başlatılacağına karar veren küçük programdır. Kilitliyken
+            yalnızca üreticinin imzaladığı yazılımı başlatır. Custom ROM, TWRP
+            ya da root için önce bu kilidin açılması gerekir.
+          </p>
+        </header>
+
+        <section class="wrap prose">
+          <h2>Bootloader ne demek?</h2>
+          <p>
+            Telefonun güç tuşuna bastığınızda ilk çalışan yazılım
+            bootloader'dır, Türkçesiyle önyükleyici. Boot bölümünü bulur,
+            doğrular ve Android'i başlatır. Fastboot modu da bootloader'ın
+            içindedir: telefonu bu modda açtığınızda Android başlamaz,
+            bootloader USB'den komut bekler. Mod hakkında ayrıntı
+            <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              >fastboot ne demek</a
+            >
+            yazısında.
+          </p>
+          <p>
+            Recovery menülerinde gördüğünüz
+            <strong>Reboot to bootloader</strong> seçeneği "önyükleyiciye
+            yeniden başlat" demektir: telefon kapanıp fastboot moduna açılır.
+            Bilgisayardan aynı şeyi <code>adb reboot bootloader</code>
+            komutu yapar.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Bootloader kilidi nedir?</h2>
+          <p>
+            <a
+              href="https://source.android.com/docs/core/architecture/bootloader/locking_unlocking"
+              >AOSP bootloader belgesi</a
+            >ne göre çoğu Android cihaz kilitli bootloader'la satılır.
+            Kilitliyken bootloader'a ya da cihazın bölümlerine yeni imaj
+            yazılamaz. Böylece telefonu ele geçiren biri sisteme kendi
+            yazılımını koyamaz. Kilit açıldığında bölümler yeniden yazılabilir
+            hale gelir. Fastboot ile ROM kurmanın, TWRP yüklemenin ve Magisk'in
+            ön koşulu budur.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Bootloader kilidi açma adımları</h2>
+          <p>Aynı belge genel sırayı şöyle anlatır:</p>
+          <ol>
+            <li>
+              Telefonda
+              <a
+                href="/general-mobile-gm8-miui/blog/gelistirici-secenekleri-acma/"
+                >geliştirici seçeneklerini açın</a
+              >
+              ve içinde <strong>OEM kilidi açma</strong> (OEM unlocking)
+              seçeneğini etkinleştirin. Bu ayar kapalıyken bootloader kilit açma
+              komutunu reddetmelidir.
+            </li>
+            <li>
+              Telefonu fastboot moduna alın, örneğin
+              <code>adb reboot bootloader</code> ile.
+            </li>
+            <li>Bilgisayardan kilit açma komutunu gönderin:</li>
+          </ol>
+          <pre><code>adb reboot bootloader
+fastboot flashing unlock     # yeni cihazlar
+fastboot oem unlock          # bazı eski cihazlar</code></pre>
+          <ol start="4">
+            <li>
+              Telefon ekranında resmî olmayan yazılımlar hakkında bir uyarı
+              çıkar. Onayladığınızda telefon fabrika ayarlarına döner.
+            </li>
+          </ol>
+          <p>
+            Bu sıfırlama bir güvenlik önlemidir: kilit açılırken cihazdaki
+            veriye yetkisiz erişimi önlemek için yapılır. Fotoğraf ve
+            dosyalarınızı önceden yedekleyin. Kilit açık durumu yeniden
+            başlatmalardan sonra da korunur.
+          </p>
+          <p>
+            Bazı üreticiler bu akışa kendi adımlarını ekler: bir hesapla
+            başvuru, bekleme süresi ya da ayrı bir araç gibi. Bunlar her markada
+            farklıdır, kendi cihazınızın talimatına bakın.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Bootloader kilidi kapatma</h2>
+          <pre><code>fastboot flashing lock</code></pre>
+          <p>
+            Bu komut kilidi kapatır ve cihazı yine sıfırlar. Dikkat: kilitli
+            bootloader yalnızca imzalı resmî yazılımı başlatır. Telefonda custom
+            ROM ya da yamalanmış bir boot imajı varken kilitlemek telefonu
+            açılmaz hale getirebilir. Kilitlemeden önce resmî yazılıma dönün.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Kilit durumu nasıl anlaşılır?</h2>
+          <pre><code>fastboot getvar unlocked     # yes ya da no
+fastboot getvar all          # bütün önyükleyici bilgileri</code></pre>
+          <p>
+            Kilidi açık telefonlar çoğu zaman açılışta "bootloader is unlocked"
+            gibi bir uyarı gösterir. Bu uyarı kilit açık kaldıkça görünür ve bir
+            arıza değildir.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>GM8 MIUI kurulumu için</h2>
+          <p>
+            <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+              >GM8 MIUI Installer</a
+            >
+            bölümlere doğrudan imaj yazdığı için bootloader kilidi açık bir GM8
+            ister. Kurulum veriyi zaten <code>fastboot erase userdata</code> ile
+            siler, yine de kilidi açarken yaşanan sıfırlama ayrı bir adımdır.
+            İkisinden önce yedek alın.
+          </p>
+        </section>
+        <section class="wrap prose faq">
+          <h2>Sık sorulan sorular</h2>
+          <h3>Bootloader ne demek?</h3>
+          <p>
+            Telefon açılırken Android'den önce çalışan önyükleyici programdır.
+            Hangi yazılımın başlatılacağına karar verir, fastboot modu da onun
+            içindedir.
+          </p>
+          <h3>Bootloader kilidi açılınca veriler silinir mi?</h3>
+          <p>
+            Evet. Android'in belgesine göre kilit açılırken cihaz, veriye
+            yetkisiz erişimi önlemek için fabrika ayarlarına sıfırlanır.
+          </p>
+          <h3>Reboot to bootloader ne demek?</h3>
+          <p>
+            Telefonu önyükleyiciye, yani fastboot moduna yeniden başlat
+            demektir. Bilgisayardan aynı işi
+            <code>adb reboot bootloader</code> yapar.
+          </p>
+          <h3>OEM kilidi açma seçeneği görünmüyor, neden?</h3>
+          <p>
+            Seçenek geliştirici seçeneklerinin içindedir; önce onları açmak
+            gerekir. Bazı cihazlarda üretici bu seçeneği sunmaz ya da ek adımlar
+            ister.
+          </p>
+        </section>
+      </article>
+      <section class="wrap prose related">
+        <h2>İlgili yazılar</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/fastboot-ne-demek/"
+              >Fastboot ne demek? Fastboot modu nedir?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/root-nedir/"
+              >Root nedir, telefonu rootlamak ne demek?</a
+            >
+          </li>
+          <li>
+            <a
+              href="/general-mobile-gm8-miui/blog/gelistirici-secenekleri-acma/"
+              >Android&#x27;de geliştirici seçenekleri nasıl açılır?</a
+            >
+          </li>
+        </ul>
+        <p>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer ve komutları</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Tüm yazılar</a>
+        </p>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

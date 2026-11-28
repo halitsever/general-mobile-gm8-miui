@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VoLTE Nedir? 4.5G Üzerinden Sesli Arama Nasıl Çalışır?</title>
+    <meta
+      name="description"
+      content="VoLTE nedir, ne işe yarar? LTE üzerinden sesli arama, IMS, telefonda VoLTE açma, VoLTE simgesi ve custom ROM&#x27;larda VoLTE&#x27;nin neden çalışmayabileceği."
+    />
+    <link
+      rel="canonical"
+      href="https://projects.halit.org/general-mobile-gm8-miui/blog/volte-nedir/"
+    />
+    <link rel="icon" href="/general-mobile-gm8-miui/assets/favicon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="GMIUI" />
+    <meta
+      property="og:title"
+      content="VoLTE Nedir? 4.5G Üzerinden Sesli Arama Nasıl Çalışır?"
+    />
+    <meta
+      property="og:description"
+      content="VoLTE nedir, ne işe yarar? LTE üzerinden sesli arama, IMS, telefonda VoLTE açma, VoLTE simgesi ve custom ROM&#x27;larda VoLTE&#x27;nin neden çalışmayabileceği."
+    />
+    <meta
+      property="og:url"
+      content="https://projects.halit.org/general-mobile-gm8-miui/blog/volte-nedir/"
+    />
+    <meta
+      property="og:image"
+      content="https://projects.halit.org/general-mobile-gm8-miui/og.png"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "VoLTE nedir, telefonda nasıl açılır?",
+            "description": "VoLTE nedir, ne işe yarar? LTE üzerinden sesli arama, IMS, telefonda VoLTE açma, VoLTE simgesi ve custom ROM'larda VoLTE'nin neden çalışmayabileceği.",
+            "url": "https://projects.halit.org/general-mobile-gm8-miui/blog/volte-nedir/",
+            "mainEntityOfPage": "https://projects.halit.org/general-mobile-gm8-miui/blog/volte-nedir/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/general-mobile-gm8-miui/og.png",
+            "keywords": "volte nedir",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "GM8 MIUI",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "VoLTE nedir, telefonda nasıl açılır?",
+                "item": "https://projects.halit.org/general-mobile-gm8-miui/blog/volte-nedir/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "VoLTE nedir?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Voice over LTE, yani sesli aramanın 4G LTE şebekesi üzerinden yapılmasıdır. Arama sırasında telefon 2G ya da 3G şebekeye düşmez."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "VoLTE açık mı kapalı mı olmalı?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Operatörünüz ve telefonunuz destekliyorsa açık tutmak, arama sırasında 4G'de kalmayı sağlar. Bir sorun yaşarsanız kapatıp eski yönteme dönebilirsiniz."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "VoLTE internet paketinden düşer mi?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Operatörler VoLTE aramalarını genelde konuşma dakikası olarak sayar. Kesin bilgi için kendi tarifenize bakın."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Custom ROM'da VoLTE neden yok?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "VoLTE'nin telefondaki IMS parçası üreticinin yazılımındadır. Genel bir sistem imajı kullanan ROM'larda bu parçanın uyumu ayrıca sağlanmazsa VoLTE çalışmaz."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/general-mobile-gm8-miui/style/blog.css" />
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'
+    ></script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="brand" href="/general-mobile-gm8-miui/"
+          ><img
+            src="/general-mobile-gm8-miui/assets/favicon.png"
+            width="24"
+            height="24"
+            alt=""
+          />GMIUI</a
+        >
+        <nav aria-label="Bölümler">
+          <a href="/general-mobile-gm8-miui/">ROM indir</a>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >Kurulum aracı</a
+          >
+          <a href="/general-mobile-gm8-miui/blog/" aria-current="page">Blog</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header class="hero wrap">
+          <p class="crumbs">
+            <a href="/general-mobile-gm8-miui/">Ana sayfa</a> ›
+            <a href="/general-mobile-gm8-miui/blog/">Blog</a>
+          </p>
+          <h1>VoLTE nedir, telefonda nasıl açılır?</h1>
+          <p class="meta">
+            Yazan <a href="https://halit.org">Halit Sever</a> ·
+            <time datetime="2026-11-28">28 Kasım 2026</time>
+          </p>
+          <p class="lead">
+            VoLTE, Voice over LTE'nin kısaltmasıdır: sesli aramanın 4G
+            (Türkiye'de 4.5G diye bilinen) LTE şebekesi üzerinden yapılması.
+            Telefon arama sırasında eski 2G ya da 3G şebekeye düşmez.
+          </p>
+        </header>
+
+        <section class="wrap prose">
+          <h2>VoLTE ne demek?</h2>
+          <p>
+            LTE baştan bir veri şebekesi olarak tasarlandı. İlk 4G telefonlar
+            internete LTE ile bağlanıp, arama gelince sesi taşımak için 2G ya da
+            3G şebekeye geçiyordu. VoLTE'de sesli arama da LTE üzerinden, IP
+            paketleri olarak taşınır. Bu işi şebeke tarafında IMS (IP Multimedia
+            Subsystem) denen altyapı yönetir.
+          </p>
+          <p>Kullanıcı açısından farkı genelde şöyle görülür:</p>
+          <ul>
+            <li>Arama sırasında mobil internet 4G'de kalır, 3G'ye düşmez.</li>
+            <li>Arama daha hızlı bağlanabilir.</li>
+            <li>
+              Operatör ve iki telefon destekliyorsa ses kalitesi daha yüksek (HD
+              ses) olabilir.
+            </li>
+          </ul>
+        </section>
+
+        <section class="wrap prose">
+          <h2>VoLTE için ne gerekir?</h2>
+          <ol>
+            <li>
+              <strong>Operatör desteği.</strong> Hattınızın bulunduğu operatör
+              VoLTE sunmalı ve hattınızda açık olmalı.
+            </li>
+            <li>
+              <strong>Telefon desteği.</strong> Telefonun modemi ve yazılımı
+              VoLTE'yi desteklemeli.
+            </li>
+            <li>
+              <strong>Ayarın açık olması.</strong> Çoğu Android telefonda bu bir
+              ayardır.
+            </li>
+          </ol>
+          <p>
+            Ayarın adı ve yeri markaya göre değişir: "VoLTE", "VoLTE çağrıları",
+            "4G arama" ya da "Gelişmiş arama" gibi. Genelde
+            <strong>Ayarlar › Mobil ağ</strong> ya da
+            <strong>SIM kartlar</strong> altında, her SIM için ayrı durur. Açık
+            olduğunda durum çubuğunda çoğu zaman küçük bir "VoLTE" ya da "HD"
+            simgesi görünür.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>VoLTE internet harcar mı?</h2>
+          <p>
+            Ses LTE'nin veri altyapısıyla taşınsa da operatörler VoLTE
+            aramalarını genelde internet paketinden değil konuşma dakikasından
+            sayar. Tarife ayrıntıları operatöre göre değişir, emin olmak için
+            kendi tarifenize bakın.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>Custom ROM'da VoLTE neden çalışmayabilir?</h2>
+          <p>
+            <a href="https://source.android.com/docs/core/connect/ims"
+              >Android'in IMS belgesi</a
+            >ne göre Android 9 ile gelen <code>ImsService</code> arayüzü,
+            Android ile üreticinin ya da operatörün sağladığı IMS uygulaması
+            arasındaki bağlantıdır. Yani VoLTE'nin telefondaki parçası
+            Android'in kendisinde değil, üreticinin yazılımındadır.
+          </p>
+          <p>
+            Bu yüzden VoLTE, custom ROM'larda ve özellikle
+            <a href="/general-mobile-gm8-miui/blog/gsi-rom-nedir/"
+              >GSI tabanlı ROM</a
+            >'larda en sık bozulan özelliklerden biridir: sistem imajı genel
+            olduğu için cihaza özel IMS parçalarıyla uyumu ayrıca sağlanmalıdır.
+          </p>
+        </section>
+
+        <section class="wrap prose">
+          <h2>GM8 MIUI ROM'da VoLTE</h2>
+          <p>
+            GM8 MIUI ROM GSI tabanlıdır ve
+            <a href="/general-mobile-gm8-miui/">indirme sayfası</a> hem MIUI EU
+            11.0.10 hem Global 11.0.7 için "VoLTE aktif" diye yazıyor. Çalışan
+            ve çalışmayan özelliklerin tam listesi
+            <a href="/general-mobile-gm8-miui/blog/miui-rom-nedir/"
+              >MIUI ROM nedir</a
+            >
+            yazısında: bilinen hata Bluetooth kulaklıkla arama yapılamaması,
+            müzik dinlemek sorunsuz.
+          </p>
+          <p>
+            Kurulumdan sonra VoLTE simgesi görünmüyorsa önce ayarda VoLTE'nin
+            açık olduğunu, sonra operatörünüzün hattınızda VoLTE'yi
+            etkinleştirdiğini kontrol edin. ROM'da bir sorun görürseniz
+            sayfadaki yorumlar bölümünden bildirebilirsiniz.
+          </p>
+        </section>
+        <section class="wrap prose faq">
+          <h2>Sık sorulan sorular</h2>
+          <h3>VoLTE nedir?</h3>
+          <p>
+            Voice over LTE, yani sesli aramanın 4G LTE şebekesi üzerinden
+            yapılmasıdır. Arama sırasında telefon 2G ya da 3G şebekeye düşmez.
+          </p>
+          <h3>VoLTE açık mı kapalı mı olmalı?</h3>
+          <p>
+            Operatörünüz ve telefonunuz destekliyorsa açık tutmak, arama
+            sırasında 4G'de kalmayı sağlar. Bir sorun yaşarsanız kapatıp eski
+            yönteme dönebilirsiniz.
+          </p>
+          <h3>VoLTE internet paketinden düşer mi?</h3>
+          <p>
+            Operatörler VoLTE aramalarını genelde konuşma dakikası olarak sayar.
+            Kesin bilgi için kendi tarifenize bakın.
+          </p>
+          <h3>Custom ROM&#x27;da VoLTE neden yok?</h3>
+          <p>
+            VoLTE'nin telefondaki IMS parçası üreticinin yazılımındadır. Genel
+            bir sistem imajı kullanan ROM'larda bu parçanın uyumu ayrıca
+            sağlanmazsa VoLTE çalışmaz.
+          </p>
+        </section>
+      </article>
+      <section class="wrap prose related">
+        <h2>İlgili yazılar</h2>
+        <ul>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/miui-rom-nedir/"
+              >MIUI ROM nedir ve Xiaomi olmayan bir telefona nasıl gelir?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/gsi-rom-nedir/"
+              >GSI ROM nedir?</a
+            >
+          </li>
+          <li>
+            <a href="/general-mobile-gm8-miui/blog/root-nedir/"
+              >Root nedir, telefonu rootlamak ne demek?</a
+            >
+          </li>
+        </ul>
+        <p>
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer ve komutları</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Tüm yazılar</a>
+        </p>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          <a href="/general-mobile-gm8-miui/">GM8 MIUI ROM indir</a> ·
+          <a href="/general-mobile-gm8-miui/gm8-miui-installer/"
+            >GM8 MIUI Installer</a
+          >
+          · <a href="/general-mobile-gm8-miui/blog/">Fastboot rehberleri</a> ·
+          <a href="https://github.com/halitsever/general-mobile-gm8-miui"
+            >GitHub</a
+          >
+        </p>
+        <p>
+          Kullanıcılardan kullanıcılar için yapılmıştır. Resmî General Mobile
+          veya Xiaomi sayfası değildir. Yazan:
+          <a href="https://halit.org">Halit Sever</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
